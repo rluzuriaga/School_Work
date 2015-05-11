@@ -1,6 +1,6 @@
 <?php
 
-  include ('book_sc_fns.php');
+  include ('fns.php');
   // The shopping cart needs sessions, so start one
   session_start();
 

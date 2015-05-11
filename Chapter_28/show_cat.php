@@ -1,5 +1,5 @@
 <?php
-  include ('book_sc_fns.php');
+  include ('fns.php');
   // The shopping cart needs sessions, so start one
   session_start();
 
@@ -8,13 +8,13 @@
 
   do_html_header($name);
 
-  // get the book info out from db
-  $book_array = get_books($catid);
+  // get the item info out from db
+  $item_array = get_items($catid);
 
-  display_books($book_array);
+  display_items($item_array);
 
 
-  // if logged in as admin, show add, delete book links
+  // if logged in as admin, show add, delete item links
   if(isset($_SESSION['admin_user'])) {
     display_button("index.php", "continue", "Continue Shopping");
     display_button("admin.php", "admin-menu", "Admin Menu");

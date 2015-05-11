@@ -1,5 +1,5 @@
 <?php
-  include ('book_sc_fns.php');
+  include ('fns.php');
   // The shopping cart needs sessions, so start one
   session_start();
 
@@ -48,7 +48,7 @@
 
   // if we have just added an item to the cart, continue shopping in that category
   if($new)   {
-    $details =  get_book_details($new);
+    $details =  get_item_details($new);
     if($details['catid']) {
       $target = "show_cat.php?catid=".$details['catid'];
     }

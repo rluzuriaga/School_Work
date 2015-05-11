@@ -1,7 +1,7 @@
 <?php
 
 // include function files for this application
-require_once('book_sc_fns.php');
+require_once('fns.php');
 session_start();
 $old_user = $_SESSION['admin_user'];  // store  to test if they *were* logged in
 unset($_SESSION['admin_user']);

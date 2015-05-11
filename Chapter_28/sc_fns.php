@@ -39,8 +39,8 @@ function get_category_name($catid) {
 }
 
 
-function get_books($catid) {
-   // query database for the books in a category
+function get_items($catid) {
+   // query database for the items in a category
    if ((!$catid) || ($catid == '')) {
      return false;
    }
@@ -51,16 +51,16 @@ function get_books($catid) {
    if (!$result) {
      return false;
    }
-   $num_books = @$result->num_rows;
-   if ($num_books == 0) {
+   $num_items = @$result->num_rows;
+   if ($num_items == 0) {
       return false;
    }
    $result = db_result_to_array($result);
    return $result;
 }
 
-function get_book_details($isbn) {
-  // query database for all details for a particular book
+function get_item_details($isbn) {
+  // query database for all details for a particular item
   if ((!$isbn) || ($isbn=='')) {
      return false;
   }
