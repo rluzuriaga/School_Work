@@ -1,6 +1,6 @@
 <?php
-  $pictures = array('Boxes.jpg', 'CopyP.jpg', 'Markers.jpg',
-                    'YellowP.jpg', 'StickS.jpg',
+  $pictures = array('pictures/Boxes.jpg', 'pictures/CopyP.jpg', 'pictures/Markers.jpg',
+                    'pictures/YellowP.jpg', 'pictures/StickS.jpg',
                     );
 
   shuffle($pictures);
