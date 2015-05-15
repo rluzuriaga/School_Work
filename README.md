@@ -5,6 +5,10 @@ All files will go in this Repo to be able to have version control.
 Please update this file everytime a change is done, and also follow the editing bellow for every addition.
 
 --
+Wednesday May 13, 2015 - Kevin
+
+Tidy up, cleaned code and pictures in folder. (htdocs)
+--
 Wednesday May 13, 2015 -Rodrigo
 
 Created folder revision and in there put all the module_7 files again just that I revised the home.php and i changed the orderform.html to orderform.php so that it the orderform is in the same style as home.php.
