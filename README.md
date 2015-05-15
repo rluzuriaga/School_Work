@@ -1,8 +1,16 @@
-# cisw31
+# CISW31
 Final project for CISW31
 
 All files will go in this Repo to be able to have version control.
 Please update this file everytime a change is done, and also follow the editing bellow for every addition.
+
+
+--
+<b>Sunday May 10, 2015 - Colin</b>
+
+I replaced all instances of the word book where possible without
+breaking the database interactions. I tested it to make sure it still works as well
+(Deleted Chapter_27 folder)
 
 --
 <b>Wednesday May 13, 2015 - Kevin</b>
