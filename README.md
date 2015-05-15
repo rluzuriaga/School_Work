@@ -6,6 +6,16 @@ Please update this file everytime a change is done, and also follow the editing 
 
 
 --
+<b>Wednesday May 6, 2015 - Rodrigo</b>
+
+Uploaded chapter 27 source code.
+
+--
+<b>Wednesday May 6, 2015 - Melissa</b>
+
+Uploaded Chapter_28 source code.
+
+--
 <b>Sunday May 10, 2015 - Colin</b>
 
 I replaced all instances of the word book where possible without
