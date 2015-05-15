@@ -23,3 +23,9 @@ I just pushed the *.sql files under mysql. these are not the actual database the
 Friday May 15, 2015 11:58 - Rodrigo
 
 Deleted the file in module_7 and that directory because it is not neeed anymore since all those files are ordered in htdocs now.
+
+--
+Friday May 15, 2015 12:12 - Rodrigo
+
+Updated the mydb.sql file. Added a comment about the creation of the database, and added the   USE dunder_mifflin;  line in the code.
+
