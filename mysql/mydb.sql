@@ -1,3 +1,7 @@
+/* Make sure that the database is created first the database name is:  dunder_mifflin  */
+
+USE dunder_mifflin;
+
 create table customers
 ( userid varchar(60) not null primary key,
   passwd varchar(20) not null,
