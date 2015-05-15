@@ -8,6 +8,7 @@ Please update this file everytime a change is done, and also follow the editing 
 Wednesday May 13, 2015 - Kevin
 
 Tidy up, cleaned code and pictures in folder. (htdocs)
+
 --
 Wednesday May 13, 2015 -Rodrigo
 
