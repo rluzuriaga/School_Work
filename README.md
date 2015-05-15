@@ -52,3 +52,8 @@ Deleted the file in module_7 and that directory because it is not neeed anymore 
 
 Updated the mydb.sql file. Added a comment about the creation of the database, and added the   USE dunder_mifflin;  line in the code.
 
+
+--
+<b>Friday May 15, 2015 15:12 - Rodrigo</b>
+
+Changed the pathnames for the pictures on the htdocs folder.
