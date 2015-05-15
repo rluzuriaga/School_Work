@@ -1,6 +1,7 @@
-<html>
-<head><title>Dunder Mifflin</title></head>
-<body>
+<!--Insert Header -->
+<?php
+	require('header.php');
+?>
 <bgcolor="#DAD8D8">
 <form action="processorder.php" method="post">
 <table border="0">
@@ -53,7 +54,6 @@
 </table>
 </form>
 </bgcolor>
-</body>
 <?php
   require('footer.php');
 ?>

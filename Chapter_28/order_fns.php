@@ -53,7 +53,7 @@ function insert_order($order_details) {
   $date = date("Y-m-d");
 
   $query = "insert into orders values
-            ('', '".$customerid."', '".$_SESSION['total_price']."', '".$date."', '".PARTIAL."',
+            ('', '".$customerid."', '".$_SESSION['total_price']."', '".$date."', '".'PARTIAL'."',
              '".$ship_name."', '".$ship_address."', '".$ship_city."', '".$ship_state."',
              '".$ship_zip."', '".$ship_country."')";
 
@@ -84,9 +84,9 @@ function insert_order($order_details) {
     return false;
   }
 
-  // insert each book
+  // insert each item
   foreach($_SESSION['cart'] as $isbn => $quantity) {
-    $detail = get_book_details($isbn);
+    $detail = get_item_details($isbn);
     $query = "delete from order_items where
               orderid = '".$orderid."' and isbn = '".$isbn."'";
     $result = $conn->query($query);

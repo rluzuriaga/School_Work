@@ -50,40 +50,40 @@ function display_category_form($category = '') {
 <?php
 }
 
-function display_book_form($book = '') {
-// This displays the book form.
+function display_item_form($item = '') {
+// This displays the item form.
 // It is very similar to the category form.
-// This form can be used for inserting or editing books.
+// This form can be used for inserting or editing items.
 // To insert, don't pass any parameters.  This will set $edit
-// to false, and the form will go to insert_book.php.
-// To update, pass an array containing a book.  The
-// form will be displayed with the old data and point to update_book.php.
-// It will also add a "Delete book" button.
+// to false, and the form will go to insert_item.php.
+// To update, pass an array containing a item.  The
+// form will be displayed with the old data and point to update_item.php.
+// It will also add a "Delete item" button.
 
 
-  // if passed an existing book, proceed in "edit mode"
-  $edit = is_array($book);
+  // if passed an existing item, proceed in "edit mode"
+  $edit = is_array($item);
 
   // most of the form is in plain HTML with some
   // optional PHP bits throughout
 ?>
   <form method="post"
-        action="<?php echo $edit ? 'edit_book.php' : 'insert_book.php';?>">
+        action="<?php echo $edit ? 'edit_item.php' : 'insert_item.php';?>">
   <table border="0">
   <tr>
     <td>ISBN:</td>
     <td><input type="text" name="isbn"
-         value="<?php echo $edit ? $book['isbn'] : ''; ?>" /></td>
+         value="<?php echo $edit ? $item['isbn'] : ''; ?>" /></td>
   </tr>
   <tr>
     <td>Book Title:</td>
     <td><input type="text" name="title"
-         value="<?php echo $edit ? $book['title'] : ''; ?>" /></td>
+         value="<?php echo $edit ? $item['title'] : ''; ?>" /></td>
   </tr>
   <tr>
     <td>Book Author:</td>
     <td><input type="text" name="author"
-         value="<?php echo $edit ? $book['author'] : ''; ?>" /></td>
+         value="<?php echo $edit ? $item['author'] : ''; ?>" /></td>
    </tr>
    <tr>
       <td>Category:</td>
@@ -93,8 +93,8 @@ function display_book_form($book = '') {
           $cat_array=get_categories();
           foreach ($cat_array as $thiscat) {
                echo "<option value=\"".$thiscat['catid']."\"";
-               // if existing book, put in current catgory
-               if (($edit) && ($thiscat['catid'] == $book['catid'])) {
+               // if existing item, put in current catgory
+               if (($edit) && ($thiscat['catid'] == $item['catid'])) {
                    echo " selected";
                }
                echo ">".$thiscat['catname']."</option>";
@@ -106,21 +106,21 @@ function display_book_form($book = '') {
    <tr>
     <td>Price:</td>
     <td><input type="text" name="price"
-               value="<?php echo $edit ? $book['price'] : ''; ?>" /></td>
+               value="<?php echo $edit ? $item['price'] : ''; ?>" /></td>
    </tr>
    <tr>
      <td>Description:</td>
      <td><textarea rows="3" cols="50"
-          name="description"><?php echo $edit ? $book['description'] : ''; ?></textarea></td>
+          name="description"><?php echo $edit ? $item['description'] : ''; ?></textarea></td>
     </tr>
     <tr>
       <td <?php if (!$edit) { echo "colspan=2"; }?> align="center">
          <?php
             if ($edit)
-             // we need the old isbn to find book in database
+             // we need the old isbn to find item in database
              // if the isbn is being updated
              echo "<input type=\"hidden\" name=\"oldisbn\"
-                    value=\"".$book['isbn']."\" />";
+                    value=\"".$item['isbn']."\" />";
          ?>
         <input type="submit"
                value="<?php echo $edit ? 'Update' : 'Add'; ?> Book" />
@@ -128,10 +128,10 @@ function display_book_form($book = '') {
         <?php
            if ($edit) {
              echo "<td>
-                   <form method=\"post\" action=\"delete_book.php\">
+                   <form method=\"post\" action=\"delete_item.php\">
                    <input type=\"hidden\" name=\"isbn\"
-                    value=\"".$book['isbn']."\" />
-                   <input type=\"submit\" value=\"Delete book\"/>
+                    value=\"".$item['isbn']."\" />
+                   <input type=\"submit\" value=\"Delete item\"/>
                    </form></td>";
             }
           ?>
@@ -189,12 +189,12 @@ function insert_category($catname) {
    }
 }
 
-function insert_book($isbn, $title, $author, $catid, $price, $description) {
-// insert a new book into the database
+function insert_item($isbn, $title, $author, $catid, $price, $description) {
+// insert a new item into the database
 
    $conn = db_connect();
 
-   // check book does not already exist
+   // check item does not already exist
    $query = "select *
              from books
              where isbn='".$isbn."'";
@@ -204,7 +204,7 @@ function insert_book($isbn, $title, $author, $catid, $price, $description) {
      return false;
    }
 
-   // insert new book
+   // insert new item
    $query = "insert into books values
             ('".$isbn."', '".$author."', '".$title."',
              '".$catid."', '".$price."', '".$description."')";
@@ -233,9 +233,9 @@ function update_category($catid, $catname) {
    }
 }
 
-function update_book($oldisbn, $isbn, $title, $author, $catid,
+function update_item($oldisbn, $isbn, $title, $author, $catid,
                      $price, $description) {
-// change details of book stored under $oldisbn in
+// change details of item stored under $oldisbn in
 // the database to new details in arguments
 
    $conn = db_connect();
@@ -259,12 +259,12 @@ function update_book($oldisbn, $isbn, $title, $author, $catid,
 
 function delete_category($catid) {
 // Remove the category identified by catid from the db
-// If there are books in the category, it will not
+// If there are items in the category, it will not
 // be removed and the function will return false.
 
    $conn = db_connect();
 
-   // check if there are any books in category
+   // check if there are any items in category
    // to avoid deletion anomalies
    $query = "select *
              from books
@@ -286,8 +286,8 @@ function delete_category($catid) {
 }
 
 
-function delete_book($isbn) {
-// Deletes the book identified by $isbn from the database.
+function delete_item($isbn) {
+// Deletes the item identified by $isbn from the database.
 
    $conn = db_connect();
 

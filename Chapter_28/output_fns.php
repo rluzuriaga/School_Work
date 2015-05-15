@@ -104,17 +104,17 @@ function display_categories($cat_array) {
   echo "<hr />";
 }
 
-function display_books($book_array) {
-  //display all books in the array passed in
-  if (!is_array($book_array)) {
-    echo "<p>No books currently available in this category</p>";
+function display_items($item_array) {
+  //display all items in the array passed in
+  if (!is_array($item_array)) {
+    echo "<p>No items currently available in this category</p>";
   } else {
     //create table
     echo "<table width=\"100%\" border=\"0\">";
 
-    //create a table row for each book
-    foreach ($book_array as $row) {
-      $url = "show_book.php?isbn=".$row['isbn'];
+    //create a table row for each item
+    foreach ($item_array as $row) {
+      $url = "show_item.php?isbn=".$row['isbn'];
       echo "<tr><td>";
       if (@file_exists("images/".$row['isbn'].".jpg")) {
         $title = "<img src=\"images/".$row['isbn'].".jpg\"
@@ -135,30 +135,30 @@ function display_books($book_array) {
   echo "<hr />";
 }
 
-function display_book_details($book) {
-  // display all details about this book
-  if (is_array($book)) {
+function display_item_details($item) {
+  // display all details about this item
+  if (is_array($item)) {
     echo "<table><tr>";
     //display the picture if there is one
-    if (@file_exists("images/".$book['isbn'].".jpg"))  {
-      $size = GetImageSize("images/".$book['isbn'].".jpg");
+    if (@file_exists("images/".$item['isbn'].".jpg"))  {
+      $size = GetImageSize("images/".$item['isbn'].".jpg");
       if(($size[0] > 0) && ($size[1] > 0)) {
-        echo "<td><img src=\"images/".$book['isbn'].".jpg\"
+        echo "<td><img src=\"images/".$item['isbn'].".jpg\"
               style=\"border: 1px solid black\"/></td>";
       }
     }
     echo "<td><ul>";
     echo "<li><strong>Author:</strong> ";
-    echo $book['author'];
+    echo $item['author'];
     echo "</li><li><strong>ISBN:</strong> ";
-    echo $book['isbn'];
+    echo $item['isbn'];
     echo "</li><li><strong>Our Price:</strong> ";
-    echo number_format($book['price'], 2);
+    echo number_format($item['price'], 2);
     echo "</li><li><strong>Description:</strong> ";
-    echo $book['description'];
+    echo $item['description'];
     echo "</li></ul></td></tr></table>";
   } else {
-    echo "<p>The details of this book cannot be displayed at this time.</p>";
+    echo "<p>The details of this item cannot be displayed at this time.</p>";
   }
   echo "<hr />";
 }
@@ -322,7 +322,7 @@ function display_cart($cart, $change = true, $images = 1) {
 
   //display each item as a table row
   foreach ($cart as $isbn => $qty)  {
-    $book = get_book_details($isbn);
+    $item = get_item_details($isbn);
     echo "<tr>";
     if($images == true) {
       echo "<td align=\"left\">";
@@ -340,9 +340,9 @@ function display_cart($cart, $change = true, $images = 1) {
       echo "</td>";
     }
     echo "<td align=\"left\">
-          <a href=\"show_book.php?isbn=".$isbn."\">".$book['title']."</a>
-          by ".$book['author']."</td>
-          <td align=\"center\">\$".number_format($book['price'], 2)."</td>
+          <a href=\"show_item.php?isbn=".$isbn."\">".$item['title']."</a>
+          by ".$item['author']."</td>
+          <td align=\"center\">\$".number_format($item['price'], 2)."</td>
           <td align=\"center\">";
 
     // if we allow changes, quantities are in text boxes
@@ -351,7 +351,7 @@ function display_cart($cart, $change = true, $images = 1) {
     } else {
       echo $qty;
     }
-    echo "</td><td align=\"center\">\$".number_format($book['price']*$qty,2)."</td></tr>\n";
+    echo "</td><td align=\"center\">\$".number_format($item['price']*$qty,2)."</td></tr>\n";
   }
   // display total row
   echo "<tr>
@@ -401,7 +401,7 @@ function display_admin_menu() {
 <br />
 <a href="index.php">Go to main site</a><br />
 <a href="insert_category_form.php">Add a new category</a><br />
-<a href="insert_book_form.php">Add a new book</a><br />
+<a href="insert_item_form.php">Add a new item</a><br />
 <a href="change_password_form.php">Change admin password</a><br />
 <?php
 }

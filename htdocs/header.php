@@ -45,8 +45,8 @@
       <span class="menu">Products</span></a></td>
 
 <!-- Label and link to Orderform.html -->
-    <td width="25%" href="orderform.html" style="cursor:pointer">
-      <a href="orderform.html">
+    <td width="25%" href="orderform.php" style="cursor:pointer">
+      <a href="orderform.php">
       <img src="s-logo.png" alt="" height="20" width="20" />
       <span class="menu">Order</span></a></td>
 
