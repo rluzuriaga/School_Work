@@ -30,10 +30,11 @@ create table order_items
 
 create table catalog
 (  item_num char(13) not null primary key,
-   description char(50) not null,
    category char(100) not null,
+   description char(50) not null,
    price float(8,2) not null
 );
 
 
+ 
 
