@@ -1,3 +1,9 @@
+Wednesday, May 20, 2015
+Created a file to insert data into table ‘catalog’ cisw31/mysql/catalog_data.sql; also in table ‘catalog’, moved category column in front of description column. 
+
+Started putting most recent changes on the top of our changes log.
+
+
 # CISW31
 Final project for CISW31
 
