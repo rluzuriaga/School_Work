@@ -38,13 +38,13 @@
       <img src="s-logo.png" alt="" height="20" width="20" />
       <span class="menu">Home</span></a></td>
 
-<!-- Label and link to Products -->
+<!-- Label and link to Products 
     <td width="25%" href="products.php" style="cursor:pointer">
       <a href="products.php">
       <img src="s-logo.png" alt="" height="20" width="20" />
-      <span class="menu">Products</span></a></td>
+      <span class="menu">Products</span></a></td> //-->
 
-<!-- Label and link to Orderform.html -->
+<!-- Label and link to Orderform.php -->
     <td width="25%" href="orderform.php" style="cursor:pointer">
       <a href="orderform.php">
       <img src="s-logo.png" alt="" height="20" width="20" />

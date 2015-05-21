@@ -7,8 +7,8 @@ function do_html_header($title) {
   <head>
     <title><?php echo $title;?></title>
     <style>
-      body { font-family: Calibri, Helvetica, sans-serif; font-size: 13px }
-      li, td { font-family: Calibri, Helvetica, sans-serif; font-size: 13px }
+      body { font-family: Calibri, Calibri, calibri; font-size: 13px }
+      li, td { font-family: Calibri, Calibri, calibri; font-size: 13px }
       hr { color: #3333cc; width=300; text-align=left}
       a { color: #000000 }
     </style>
