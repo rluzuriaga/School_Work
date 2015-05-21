@@ -35,7 +35,7 @@
   <tr bgcolor="#15384E">
     <td width="25%" href="home.php" style="cursor:pointer">
       <a href="home.php">
-      <img src="s-logo.png" alt="" height="20" width="20" />
+      <img src="pictures/s-logo.png" alt="" height="20" width="20" />
       <span class="menu">Home</span></a></td>
 
 <!-- Label and link to Products 
@@ -47,17 +47,17 @@
 <!-- Label and link to Orderform.php -->
     <td width="25%" href="orderform.php" style="cursor:pointer">
       <a href="orderform.php">
-      <img src="s-logo.png" alt="" height="20" width="20" />
+      <img src="pictures/s-logo.png" alt="" height="20" width="20" />
       <span class="menu">Order</span></a></td>
 
 <!-- Label and link to login.php -->
 <td width="25%" href="login.php" style="cursor:pointer">
       <a href="login.php">
-      <img src="s-logo.png" alt="" height="20" width="20" />
+      <img src="pictures/s-logo.png" alt="" height="20" width="20" />
       <span class="menu">Login</span></a></td>
 
     <td width="25%">
-      <img src="s-logo.png" alt="" height="20" width="20" />
+      <img src="pictures/s-logo.png" alt="" height="20" width="20" />
       <span class="menu">Feedback</span></td>
 
 

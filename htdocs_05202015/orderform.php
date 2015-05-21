@@ -12,7 +12,7 @@
   <td width="15">Quantity</td>
 </tr>
 <tr>
-  <td><img src= "CopyP.jpg" alt= "copy_paper" width= 32 height= 32 align=left/>Copy Paper</td>
+  <td><img src= "pictures/CopyP.jpg" alt= "copy_paper" width= 32 height= 32 align=left/>Copy Paper</td>
 <!--  <td>Copy Paper</td> //-->
   <td>20-lb 500 sheets per ream; 10 reams per carton</td>
   <td>$50</td>
@@ -20,7 +20,7 @@
      maxlength="3" /></td>
 </tr>
 <tr>
-  <td><img src= "YellowP.jpg" alt= "yellow_paper" width= 32 height= 32 align=left/>Yellow Paper</td>
+  <td><img src= "pictures/YellowP.jpg" alt= "yellow_paper" width= 32 height= 32 align=left/>Yellow Paper</td>
 <!--  <td>Yellow Paper</td> //-->
   <td>Perforated college-ruled sheets 12 pads per pack</td>
   <td>$8</td>
@@ -28,7 +28,7 @@
      maxlength="3" /></td>
 </tr>
 <tr>
- <td><img src= "StickS.jpg" alt= "sticky_paper" width= 32 height= 32 align=left/>Sticky Squares</td>
+ <td><img src= "pictures/StickS.jpg" alt= "sticky_paper" width= 32 height= 32 align=left/>Sticky Squares</td>
 <!--  <td>Sticky Squares</td> //-->
    <td>3" x 3" , 100 sheets per pad</td>
    <td>$3</td>
@@ -36,7 +36,7 @@
      maxlength="3" /></td>
 </tr>
 <tr>
-  <td><img src= "Markers.jpg" alt= "markers" width= 32 height= 32 align=left/>Markers</td>
+  <td><img src= "pictures/Markers.jpg" alt= "markers" width= 32 height= 32 align=left/>Markers</td>
 <!--  <td>Fine-Tip Markers</td> //-->
   <td>1.0 mm Tip for Fine BOLD Marking Pack of 12, Black Sharpie Markers</td>
    <td>$2</td>
@@ -44,7 +44,7 @@
      maxlength="3" /></td>
 </tr>
 <tr>
-  <td><img src= "Boxes.jpg" alt= "storage_box" width= 32 height= 32 align=left/>Boxes</td>
+  <td><img src= "pictures/Boxes.jpg" alt= "storage_box" width= 32 height= 32 align=left/>Boxes</td>
 <!--  <td>Storage Boxes</td> //-->
    <td>350lb. stacking weight, Holds letter/legal-size files</td>
     <td>$1</td>
