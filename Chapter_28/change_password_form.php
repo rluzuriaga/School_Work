@@ -1,5 +1,5 @@
 <?php
- require_once('fns.php');
+ require_once('paper_fns.php');
  session_start();
  do_html_header("Change administrator password");
  check_admin_user();

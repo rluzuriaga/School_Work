@@ -1,5 +1,5 @@
 <?php
- require_once('fns.php');
+ require_once('paper_fns.php');
  do_html_header("Administration");
 
  display_login_form();

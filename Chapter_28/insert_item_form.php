@@ -1,7 +1,7 @@
 <?php
 
 // include function files for this application
-require_once('fns.php');
+require_once('paper_fns.php');
 session_start();
 
 do_html_header("Add an item");

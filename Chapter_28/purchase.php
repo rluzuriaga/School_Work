@@ -1,6 +1,6 @@
 <?php
 
-  include ('fns.php');
+  include ('paper_fns.php');
   // The shopping cart needs sessions, so start one
   session_start();
 

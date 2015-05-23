@@ -1,7 +1,7 @@
 <?php
 
 function db_connect() {
-   $result = new mysqli('localhost', 'book_sc', 'password', 'book_sc');
+   $result = new mysqli('localhost', 'dunder_mifflin', 'password', 'dunder_mifflin');
    if (!$result) {
       return false;
    }
