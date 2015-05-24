@@ -10,7 +10,7 @@ create table customers
   address char(100) not null,
   city char(30) not null,
   state char(2) not null,
-  tel_number char(15) not null,
+  tel_number char(15) not null
 );
 
 create table orders
@@ -42,9 +42,9 @@ create table order_items
 );
 
 create table items
-(  item_num unsigned not null auto_increment primary key,
-   description char(50) not null,
-   category char(100) not null,
+(  item_num int unsigned not null auto_increment primary key,
+   name char(50) not null,
+   description char(100) not null,
    price float(8,2) not null
 );
 
