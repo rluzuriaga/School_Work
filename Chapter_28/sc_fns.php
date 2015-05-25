@@ -1,3 +1,5 @@
+//Replaced instances of 'isbn' with 'item_num'
+
 <?php
 function calculate_shipping_cost() {
   // as we are shipping products all over the world
@@ -46,7 +48,8 @@ function get_items($catid) {
    }
 
    $conn = db_connect();
-   $query = "select * from books where catid = '".$catid."'";
+//Replaced 'books' with 'items
+   $query = "select * from items where catid = '".$catid."'";
    $result = @$conn->query($query);
    if (!$result) {
      return false;
@@ -59,13 +62,13 @@ function get_items($catid) {
    return $result;
 }
 
-function get_item_details($isbn) {
+function get_item_details($item_num) {
   // query database for all details for a particular item
-  if ((!$isbn) || ($isbn=='')) {
+  if ((!$item_num) || ($item_num=='')) {
      return false;
   }
   $conn = db_connect();
-  $query = "select * from books where isbn='".$isbn."'";
+  $query = "select * from books where item_num='".$item_num."'";
   $result = @$conn->query($query);
   if (!$result) {
      return false;
@@ -79,8 +82,8 @@ function calculate_price($cart) {
   $price = 0.0;
   if(is_array($cart)) {
     $conn = db_connect();
-    foreach($cart as $isbn => $qty) {
-      $query = "select price from books where isbn='".$isbn."'";
+    foreach($cart as $item_num => $qty) {
+      $query = "select price from books where item_num='".$item_num."'";
       $result = $conn->query($query);
       if ($result) {
         $item = $result->fetch_object();
@@ -96,7 +99,7 @@ function calculate_items($cart) {
   // sum total items in shopping cart
   $items = 0;
   if(is_array($cart))   {
-    foreach($cart as $isbn => $qty) {
+    foreach($cart as $item_num => $qty) {
       $items += $qty;
     }
   }

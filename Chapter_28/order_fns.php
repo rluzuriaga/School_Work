@@ -85,13 +85,14 @@ function insert_order($order_details) {
   }
 
   // insert each item
-  foreach($_SESSION['cart'] as $isbn => $quantity) {
-    $detail = get_item_details($isbn);
+  // Replaced 'isbn' with 'item_num'
+  foreach($_SESSION['cart'] as $item_num => $quantity) {
+    $detail = get_item_details($item_num);
     $query = "delete from order_items where
-              orderid = '".$orderid."' and isbn = '".$isbn."'";
+              orderid = '".$orderid."' and item_num = '".$item_num."'";
     $result = $conn->query($query);
     $query = "insert into order_items values
-              ('".$orderid."', '".$isbn."', ".$detail['price'].", $quantity)";
+              ('".$orderid."', '".$item_num."', ".$detail['price'].", $quantity)";
     $result = $conn->query($query);
     if(!$result) {
       return false;

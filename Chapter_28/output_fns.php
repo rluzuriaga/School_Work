@@ -1,3 +1,5 @@
+//Replaced all instances of 'isbn' with 'item_num'
+
 <?php
 
 function do_html_header($title = '') {
@@ -26,6 +28,7 @@ function do_html_header($title = '') {
   <table width="100%" border="0" cellspacing="0" bgcolor="#cccccc">
   <tr>
   <td rowspan="2">
+//NEED TO REPLACE IMAGES
   <a href="index.php"><img src="images/Book-O-Rama.gif" alt="Bookorama" border="0"
        align="left" valign="bottom" height="55" width="325"/></a>
   </td>
@@ -114,17 +117,19 @@ function display_items($item_array) {
 
     //create a table row for each item
     foreach ($item_array as $row) {
-      $url = "show_item.php?isbn=".$row['isbn'];
+      $url = "show_item.php?isbn=".$row['item_num'];
       echo "<tr><td>";
-      if (@file_exists("images/".$row['isbn'].".jpg")) {
-        $title = "<img src=\"images/".$row['isbn'].".jpg\"
+      if (@file_exists("images/".$row['item_num'].".jpg")) {
+        $title = "<img src=\"images/".$row['item_num'].".jpg\"
                   style=\"border: 1px solid black\"/>";
         do_html_url($url, $title);
       } else {
         echo "&nbsp;";
       }
+      //Removed author
+      //
       echo "</td><td>";
-      $title = $row['title']." by ".$row['author'];
+      $title = $row['title']." ;
       do_html_url($url, $title);
       echo "</td></tr>";
     }
@@ -140,18 +145,17 @@ function display_item_details($item) {
   if (is_array($item)) {
     echo "<table><tr>";
     //display the picture if there is one
-    if (@file_exists("images/".$item['isbn'].".jpg"))  {
-      $size = GetImageSize("images/".$item['isbn'].".jpg");
+    if (@file_exists("images/".$item['item_num'].".jpg"))  {
+      $size = GetImageSize("images/".$item['item_num'].".jpg");
       if(($size[0] > 0) && ($size[1] > 0)) {
-        echo "<td><img src=\"images/".$item['isbn'].".jpg\"
+        echo "<td><img src=\"images/".$item['item_num'].".jpg\"
               style=\"border: 1px solid black\"/></td>";
       }
     }
+    //Removed 'Author'
     echo "<td><ul>";
-    echo "<li><strong>Author:</strong> ";
-    echo $item['author'];
-    echo "</li><li><strong>ISBN:</strong> ";
-    echo $item['isbn'];
+    echo "</li><li><strong>ITEM_NUM:</strong> ";
+    echo $item['item_num'];
     echo "</li><li><strong>Our Price:</strong> ";
     echo number_format($item['price'], 2);
     echo "</li><li><strong>Description:</strong> ";
@@ -321,15 +325,15 @@ function display_cart($cart, $change = true, $images = 1) {
          </tr>";
 
   //display each item as a table row
-  foreach ($cart as $isbn => $qty)  {
-    $item = get_item_details($isbn);
+  foreach ($cart as $item_num => $qty)  {
+    $item = get_item_details($item_num);
     echo "<tr>";
     if($images == true) {
       echo "<td align=\"left\">";
-      if (file_exists("images/".$isbn.".jpg")) {
-         $size = GetImageSize("images/".$isbn.".jpg");
+      if (file_exists("images/".$item_num.".jpg")) {
+         $size = GetImageSize("images/".$item_num.".jpg");
          if(($size[0] > 0) && ($size[1] > 0)) {
-           echo "<img src=\"images/".$isbn.".jpg\"
+           echo "<img src=\"images/".$item_num.".jpg\"
                   style=\"border: 1px solid black\"
                   width=\"".($size[0]/3)."\"
                   height=\"".($size[1]/3)."\"/>";
@@ -340,14 +344,14 @@ function display_cart($cart, $change = true, $images = 1) {
       echo "</td>";
     }
     echo "<td align=\"left\">
-          <a href=\"show_item.php?isbn=".$isbn."\">".$item['title']."</a>
+          <a href=\"show_item.php?item_num=".$item_num."\">".$item['title']."</a>
           by ".$item['author']."</td>
           <td align=\"center\">\$".number_format($item['price'], 2)."</td>
           <td align=\"center\">";
 
     // if we allow changes, quantities are in text boxes
     if ($change == true) {
-      echo "<input type=\"text\" name=\"".$isbn."\" value=\"".$qty."\" size=\"3\">";
+      echo "<input type=\"text\" name=\"".$item_num."\" value=\"".$qty."\" size=\"3\">";
     } else {
       echo $qty;
     }
