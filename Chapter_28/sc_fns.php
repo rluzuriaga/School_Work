@@ -1,4 +1,4 @@
-//Replaced instances of 'isbn' with 'item_num'
+<!--Replaced instances of 'isbn' with 'item_num'-->
 
 <?php
 function calculate_shipping_cost() {
@@ -68,7 +68,7 @@ function get_item_details($item_num) {
      return false;
   }
   $conn = db_connect();
-  $query = "select * from books where item_num='".$item_num."'";
+  $query = "select * from items where item_num='".$item_num."'";
   $result = @$conn->query($query);
   if (!$result) {
      return false;
@@ -83,7 +83,7 @@ function calculate_price($cart) {
   if(is_array($cart)) {
     $conn = db_connect();
     foreach($cart as $item_num => $qty) {
-      $query = "select price from books where item_num='".$item_num."'";
+      $query = "select price from items where item_num='".$item_num."'";
       $result = $conn->query($query);
       if ($result) {
         $item = $result->fetch_object();

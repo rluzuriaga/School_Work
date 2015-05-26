@@ -7,17 +7,15 @@ session_start();
 do_html_header("Adding an item");
 if (check_admin_user()) {
   if (filled_out($_POST)) {
-    $isbn = $_POST['isbn'];
-    $title = $_POST['title'];
-    $author = $_POST['author'];
+    $name = $_POST['name'];
+    $description = $_POST['description'];
     $catid = $_POST['catid'];
     $price = $_POST['price'];
-    $description = $_POST['description'];
 
-    if(insert_item($isbn, $title, $author, $catid, $price, $description)) {
-      echo "<p>Item <em>".stripslashes($title)."</em> was added to the database.</p>";
+    if(insert_item($name, $description, $catid, $price)) {
+      echo "<p>Item <em>".stripslashes($name)."</em> was added to the database.</p>";
     } else {
-      echo "<p>Item <em>".stripslashes($title)."</em> could not be added to the database.</p>";
+      echo "<p>Item <em>".stripslashes($name)."</em> could not be added to the database.</p>";
     }
   } else {
     echo "<p>You have not filled out the form.  Please try again.</p>";

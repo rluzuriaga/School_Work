@@ -6,15 +6,15 @@ session_start();
 
 do_html_header("Deleting item");
 if (check_admin_user()) {
-  if (isset($_POST['isbn'])) {
-    $isbn = $_POST['isbn'];
-    if(delete_item($isbn)) {
-      echo "<p>Item ".$isbn." was deleted.</p>";
+  if (isset($_POST['item_num'])) {
+    $item_num = $_POST['item_num'];
+    if(delete_item($item_num)) {
+      echo "<p>Item ".$item_num." was deleted.</p>";
     } else {
-      echo "<p>Item ".$isbn." could not be deleted.</p>";
+      echo "<p>Item ".$item_num." could not be deleted.</p>";
     }
   } else {
-    echo "<p>We need an ISBN to delete a item.  Please try again.</p>";
+    echo "<p>We need an Item Number to delete a item.  Please try again.</p>";
   }
   do_html_url("admin.php", "Back to administration menu");
 } else {

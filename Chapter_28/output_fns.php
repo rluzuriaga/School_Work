@@ -1,4 +1,4 @@
-//Replaced all instances of 'isbn' with 'item_num'
+<!--Replaced all instances of 'isbn' with 'item_num'-->
 
 <?php
 
@@ -6,60 +6,99 @@ function do_html_header($title = '') {
   // print an HTML header
 
   // declare the session variables we want access to inside the function
+  /*
   if (!$_SESSION['items']) {
     $_SESSION['items'] = '0';
   }
   if (!$_SESSION['total_price']) {
     $_SESSION['total_price'] = '0.00';
   }
+  if(isset($_SESSION['admin_user'])) {
+    echo "&nbsp;";
+  } else {
+    echo "Total Items = ".$_SESSION['items'];
+  }
+     
+  if(isset($_SESSION['admin_user'])) {
+    echo "&nbsp;";
+  } else {
+    echo "Total Price = $".number_format($_SESSION['total_price'],2);
+  }
+  */
 ?>
-  <html>
-  <head>
-    <title><?php echo $title; ?></title>
-    <style>
-      h2 { font-family: Arial, Helvetica, sans-serif; font-size: 22px; color: red; margin: 6px }
-      body { font-family: Arial, Helvetica, sans-serif; font-size: 13px }
-      li, td { font-family: Arial, Helvetica, sans-serif; font-size: 13px }
-      hr { color: #FF0000; width=70%; text-align=center}
-      a { color: #000000 }
-    </style>
-  </head>
-  <body>
-  <table width="100%" border="0" cellspacing="0" bgcolor="#cccccc">
-  <tr>
-  <td rowspan="2">
-//NEED TO REPLACE IMAGES
-  <a href="index.php"><img src="images/Book-O-Rama.gif" alt="Bookorama" border="0"
-       align="left" valign="bottom" height="55" width="325"/></a>
-  </td>
-  <td align="right" valign="bottom">
-  <?php
-     if(isset($_SESSION['admin_user'])) {
-       echo "&nbsp;";
-     } else {
-       echo "Total Items = ".$_SESSION['items'];
-     }
-  ?>
-  </td>
-  <td align="right" rowspan="2" width="135">
-  <?php
-     if(isset($_SESSION['admin_user'])) {
-       display_button('logout.php', 'log-out', 'Log Out');
-     } else {
-       display_button('show_cart.php', 'view-cart', 'View Your Shopping Cart');
-     }
-  ?>
+
+<html>
+<head>
+  <title>Dunder Mifflin Paper Products</title>
+<!-- Define Style in document -->  
+<style type="text/css">
+    h1 {color:white; font-size:24pt; text-align:center;
+        font-family:arial,sans-serif}
+    .menu {color:#81DAF5; font-size:12pt; text-align:center;
+           font-family:calibri,sans-serif; font-weight:bold}
+    p {color:black; font-size:12pt; text-align:justify;
+       font-family:calibri,sans-serif}
+    p.foot {color:white; font-size:9pt; text-align:center;
+            font-family:calibri,sans-serif; font-weight:bold}
+    a:link,a:visited,a:active {color:#00BFFF}
+  </style>
+</head>
+<body>
+
+  <!-- page header -->
+  <table width="100%" cellpadding="12" cellspacing="0" border="0">
+  <tr bgcolor="#15384E">
+    <td align="left"><img src="images/logo.jpg" alt="TLA logo" height="90" width="165"></td>
+    <td>
+        <h1>Dunder Mifflin Paper Products</h1>
+    </td>
+    <td align="right"><img src="images/logo.jpg" alt="TLA logo" height="90" width="165" /></td>
   </tr>
-  <tr>
-  <td align="right" valign="top">
-  <?php
+  </table>
+
+  <!-- menu -->
+
+<!-- Label and link to Home -->
+  <table width="100%" bgcolor="#CEECF5" cellpadding="4" cellspacing="4">
+  <tr bgcolor="#15384E">
+    <td width="25%" href="index.php" style="cursor:pointer">
+      <a href="index.php">
+      <img src="images/s-logo.png" alt="" height="38"" width="80" />
+      <span class="menu">Home</span></a></td>
+
+<!-- Label and link to Products 
+    <td width="25%" href="products.php" style="cursor:pointer">
+      <a href="products.php">
+      <img src="s-logo.png" alt="" height="38"" width="80" />
+      <span class="menu">Products</span></a></td> //-->
+
+<!-- TEMPORARY link to home -->
+    <td width="25%" href="index.php" style="cursor:pointer">
+      <a href="index.php">
+      <img src="images/s-logo.png" alt="" height="38"" width="80" />
+      <span class="menu">Order</span></a></td>
+
+<!-- Label and link to logout.php or show_cart -->
+<td width="25%" style="cursor:pointer"
+     <?php
      if(isset($_SESSION['admin_user'])) {
-       echo "&nbsp;";
+      echo "href=\"logout.php\">
+      <a href=\"logout.php\">
+      <img src=\"images/s-logo.png\" alt=\"\" height=\"38\" width=\"80\" />
+      <span class=\"menu\">Log Out</span></a></td>";  
      } else {
-       echo "Total Price = $".number_format($_SESSION['total_price'],2);
+      echo "href=\"show_cart.php\">
+      <a href=\"show_cart.php\">
+      <img src=\"images/s-logo.png\" alt=\"\" height=\"38\" width=\"80\" />
+      <span class=\"menu\">Cart</span></a></td>";  
      }
-  ?>
-  </td>
+     ?>
+
+    <td width="25%">
+      <img src="images/s-logo.png" alt="" height="38"" width="80" />
+      <span class="menu">Feedback</span></td>
+
+
   </tr>
   </table>
 <?php
@@ -69,15 +108,15 @@ function do_html_header($title = '') {
 }
 
 function do_html_footer() {
-  // print an HTML footer
+   //print an html footer
 ?>
-  </body>
-  </html>
+   </body>
+   </html>
 <?php
 }
 
 function do_html_heading($heading) {
-  // print heading
+   //print heading
 ?>
   <h2><?php echo $heading; ?></h2>
 <?php
@@ -117,7 +156,7 @@ function display_items($item_array) {
 
     //create a table row for each item
     foreach ($item_array as $row) {
-      $url = "show_item.php?isbn=".$row['item_num'];
+      $url = "show_item.php?item_num=".$row['item_num'];
       echo "<tr><td>";
       if (@file_exists("images/".$row['item_num'].".jpg")) {
         $title = "<img src=\"images/".$row['item_num'].".jpg\"
@@ -127,9 +166,8 @@ function display_items($item_array) {
         echo "&nbsp;";
       }
       //Removed author
-      //
       echo "</td><td>";
-      $title = $row['title']." ;
+      $title = $row['name'];
       do_html_url($url, $title);
       echo "</td></tr>";
     }
@@ -154,12 +192,14 @@ function display_item_details($item) {
     }
     //Removed 'Author'
     echo "<td><ul>";
-    echo "</li><li><strong>ITEM_NUM:</strong> ";
+    echo "</li><li><strong>Item_Num:</strong> ";
     echo $item['item_num'];
-    echo "</li><li><strong>Our Price:</strong> ";
-    echo number_format($item['price'], 2);
+    echo "</li><li><strong>Name:</strong> ";
+    echo $item['name'];
     echo "</li><li><strong>Description:</strong> ";
     echo $item['description'];
+    echo "</li><li><strong>Our Price:</strong> ";
+    echo number_format($item['price'], 2);
     echo "</li></ul></td></tr></table>";
   } else {
     echo "<p>The details of this item cannot be displayed at this time.</p>";
@@ -344,8 +384,8 @@ function display_cart($cart, $change = true, $images = 1) {
       echo "</td>";
     }
     echo "<td align=\"left\">
-          <a href=\"show_item.php?item_num=".$item_num."\">".$item['title']."</a>
-          by ".$item['author']."</td>
+          <a href=\"show_item.php?item_num=".$item_num."\">".$item['name']."</a>
+          </td>
           <td align=\"center\">\$".number_format($item['price'], 2)."</td>
           <td align=\"center\">";
 

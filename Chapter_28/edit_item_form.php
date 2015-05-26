@@ -6,7 +6,7 @@ session_start();
 
 do_html_header("Edit item details");
 if (check_admin_user()) {
-  if ($item = get_item_details($_GET['isbn'])) {
+  if ($item = get_item_details($_GET['item_num'])) {
     display_item_form($item);
   } else {
     echo "<p>Could not retrieve item details.</p>";

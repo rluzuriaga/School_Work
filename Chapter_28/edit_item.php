@@ -7,15 +7,14 @@ session_start();
 do_html_header("Updating item");
 if (check_admin_user()) {
   if (filled_out($_POST)) {
-    $oldisbn = $_POST['oldisbn'];
-    $isbn = $_POST['isbn'];
-    $title = $_POST['title'];
-    $author = $_POST['author'];
+    $olditem = $_POST['olditem'];
+    $item_num = $_POST['item_num'];
+    $name = $_POST['name'];
+    $description = $_POST['description'];
     $catid = $_POST['catid'];
     $price = $_POST['price'];
-    $description = $_POST['description'];
 
-    if(update_item($oldisbn, $isbn, $title, $author, $catid, $price, $description)) {
+    if(update_item($olditem, $item_num, $name, $description, $catid, $price)) {
       echo "<p>Item was updated.</p>";
     } else {
       echo "<p>Item could not be updated.</p>";

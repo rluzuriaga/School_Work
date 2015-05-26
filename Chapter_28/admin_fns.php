@@ -70,20 +70,25 @@ function display_item_form($item = '') {
   <form method="post"
         action="<?php echo $edit ? 'edit_item.php' : 'insert_item.php';?>">
   <table border="0">
-  <tr>
+  <!--<tr>
     <td>ISBN:</td>
     <td><input type="text" name="isbn"
          value="<?php echo $edit ? $item['isbn'] : ''; ?>" /></td>
-  </tr>
+  </tr>-->
   <tr>
-    <td>Book Title:</td>
-    <td><input type="text" name="title"
-         value="<?php echo $edit ? $item['title'] : ''; ?>" /></td>
+    <td>Name:</td>
+    <td><input type="text" name="name"
+         value="<?php echo $edit ? $item['name'] : ''; ?>" /></td>
   </tr>
-  <tr>
+  <!--<tr>
     <td>Book Author:</td>
     <td><input type="text" name="author"
          value="<?php echo $edit ? $item['author'] : ''; ?>" /></td>
+   </tr>-->
+   <tr>
+     <td>Description:</td>
+     <td><textarea rows="3" cols="50"
+          name="description"><?php echo $edit ? $item['description'] : ''; ?></textarea></td>
    </tr>
    <tr>
       <td>Category:</td>
@@ -108,29 +113,24 @@ function display_item_form($item = '') {
     <td><input type="text" name="price"
                value="<?php echo $edit ? $item['price'] : ''; ?>" /></td>
    </tr>
-   <tr>
-     <td>Description:</td>
-     <td><textarea rows="3" cols="50"
-          name="description"><?php echo $edit ? $item['description'] : ''; ?></textarea></td>
-    </tr>
     <tr>
       <td <?php if (!$edit) { echo "colspan=2"; }?> align="center">
          <?php
             if ($edit)
-             // we need the old isbn to find item in database
-             // if the isbn is being updated
-             echo "<input type=\"hidden\" name=\"oldisbn\"
-                    value=\"".$item['isbn']."\" />";
+             // we need the old item to find item in database
+             // if the item is being updated
+             echo "<input type=\"hidden\" name=\"olditem\"
+                    value=\"".$item['item_num']."\" />";
          ?>
         <input type="submit"
-               value="<?php echo $edit ? 'Update' : 'Add'; ?> Book" />
+               value="<?php echo $edit ? 'Update' : 'Add'; ?> Item" />
         </form></td>
         <?php
            if ($edit) {
              echo "<td>
                    <form method=\"post\" action=\"delete_item.php\">
-                   <input type=\"hidden\" name=\"isbn\"
-                    value=\"".$item['isbn']."\" />
+                   <input type=\"hidden\" name=\"item_num\"
+                    value=\"".$item['item_num']."\" />
                    <input type=\"submit\" value=\"Delete item\"/>
                    </form></td>";
             }
@@ -189,15 +189,15 @@ function insert_category($catname) {
    }
 }
 
-function insert_item($isbn, $title, $author, $catid, $price, $description) {
+function insert_item($item_num, $name, $description, $catid, $price) {
 // insert a new item into the database
 
    $conn = db_connect();
 
    // check item does not already exist
    $query = "select *
-             from books
-             where isbn='".$isbn."'";
+             from items
+             where item_num='".$item_num."'";
 
    $result = $conn->query($query);
    if ((!$result) || ($result->num_rows!=0)) {
@@ -205,9 +205,9 @@ function insert_item($isbn, $title, $author, $catid, $price, $description) {
    }
 
    // insert new item
-   $query = "insert into books values
-            ('".$isbn."', '".$author."', '".$title."',
-             '".$catid."', '".$price."', '".$description."')";
+   $query = "insert into items values
+            ('".$item_num."', '".$name."', '".$description."',
+             '".$catid."', '".$price."')";
 
    $result = $conn->query($query);
    if (!$result) {
@@ -233,21 +233,20 @@ function update_category($catid, $catname) {
    }
 }
 
-function update_item($oldisbn, $isbn, $title, $author, $catid,
-                     $price, $description) {
-// change details of item stored under $oldisbn in
+function update_item($olditem, $item_num, $name, $description, $catid,
+                     $price) {
+// change details of item stored under $olditem in
 // the database to new details in arguments
 
    $conn = db_connect();
 
-   $query = "update books
-             set isbn= '".$isbn."',
-             title = '".$title."',
-             author = '".$author."',
+   $query = "update items
+             set item_num= '".$item_num."',
+             name = '".$name."',
+             description = '".$description."',
              catid = '".$catid."',
              price = '".$price."',
-             description = '".$description."'
-             where isbn = '".$oldisbn."'";
+             where item_num = '".$olditem."'";
 
    $result = @$conn->query($query);
    if (!$result) {
@@ -257,7 +256,8 @@ function update_item($oldisbn, $isbn, $title, $author, $catid,
    }
 }
 
-function delete_category($catid) {
+function 
+_category($catid) {
 // Remove the category identified by catid from the db
 // If there are items in the category, it will not
 // be removed and the function will return false.
@@ -267,7 +267,7 @@ function delete_category($catid) {
    // check if there are any items in category
    // to avoid deletion anomalies
    $query = "select *
-             from books
+             from items
              where catid='".$catid."'";
 
    $result = @$conn->query($query);
@@ -286,13 +286,13 @@ function delete_category($catid) {
 }
 
 
-function delete_item($isbn) {
+function delete_item($item_num) {
 // Deletes the item identified by $isbn from the database.
 
    $conn = db_connect();
 
-   $query = "delete from books
-             where isbn='".$isbn."'";
+   $query = "delete from items
+             where item_num='".$item_num."'";
    $result = @$conn->query($query);
    if (!$result) {
      return false;

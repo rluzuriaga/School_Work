@@ -24,11 +24,11 @@
   }
 
   if(isset($_POST['save'])) {
-    foreach ($_SESSION['cart'] as $isbn => $qty) {
-      if($_POST[$isbn] == '0') {
-        unset($_SESSION['cart'][$isbn]);
+    foreach ($_SESSION['cart'] as $item_num => $qty) {
+      if($_POST[$item_num] == '0') {
+        unset($_SESSION['cart'][$item_num]);
       } else {
-        $_SESSION['cart'][$isbn] = $_POST[$isbn];
+        $_SESSION['cart'][$item_num] = $_POST[$item_num];
       }
     }
 
