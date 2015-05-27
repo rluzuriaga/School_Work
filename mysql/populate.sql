@@ -11,5 +11,3 @@ INSERT INTO categories (catname) VALUES ('Paper');
 INSERT INTO categories (catname) VALUES ('Squares');
 INSERT INTO categories (catname) VALUES ('Markers');
 INSERT INTO categories (catname) VALUES ('Boxes');
-
-INSERT INTO admin VALUES ('admin', sha1('admin'));

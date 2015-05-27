@@ -3,14 +3,15 @@ create database dunder_mifflin;
 use dunder_mifflin;
 
 create table customers
-( customerid varchar(60) not null primary key,
-  passwd varchar(20) not null,
+( userid varchar(60) not null primary key,
+  password varchar(20) not null,
   email_address varchar(60) not null,
-  name char(50) not null,
-  address char(100) not null,
-  city char(30) not null,
-  state char(2) not null,
-  tel_number char(15) not null
+  name char(50),
+  address char(100),
+  city char(30),
+  state char(2),
+  zip char(10),
+  country char(20)
 );
 
 create table orders
@@ -22,8 +23,8 @@ create table orders
   ship_name char(60) not null,
   ship_address char(80) not null,
   ship_city char(30) not null,
-  ship_state char(20),
-  ship_zip char(10),
+  ship_state char(20) not null,
+  ship_zip char(10) not null,
   ship_country char(20) not null
 );
 
@@ -47,12 +48,6 @@ create table items
    description char(100) not null,
    catid int unsigned not null,
    price float(8,2) not null
-);
-
-create table admin
-(
-  username char(16) not null primary key,
-  password char(40) not null
 );
 
 grant select, insert, update, delete
