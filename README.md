@@ -63,3 +63,10 @@ Updated the mydb.sql file. Added a comment about the creation of the database, a
 <b>Friday May 15, 2015 15:12 - Rodrigo</b>
 
 Changed the pathnames for the pictures on the htdocs folder.
+
+--
+<b>Friday May 27, 2015 - Kevin</b>
+Major re-haul of the site located in htdocs_loginworking05272015
+From here we can easily implement the shopping cart, then clear off the unnecessary folders and our project is pretty much finished
+Documentation ill work on the following days
+Code at the point is heavily commented, to show how everything works.
