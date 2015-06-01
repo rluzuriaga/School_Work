@@ -291,6 +291,20 @@ function display_cart($cart, $change = true, $images = 1) {
   echo "</form></table>";
 }
 
+function do_html_heading($heading) {
+  // print heading
+?>
+  <h2><?php echo $heading; ?></h2>
+<?php
+}
+
+function do_html_URL($url, $name) {
+  // output URL as link and br
+?>
+  <a href="<?php echo $url; ?>"><?php echo $name; ?></a><br />
+<?php
+}
+
 function display_button($target, $image, $alt) {
   echo "<div align=\"center\"><a href=\"".$target."\">
           <img src=\"images/".$image.".gif\"

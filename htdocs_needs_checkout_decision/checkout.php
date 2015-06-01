@@ -1,11 +1,12 @@
 <?php
+  require('header.php');
   //include our function set
   include('paper_fns.php');
 
   // The shopping cart needs sessions, so start one
   session_start();
 
-  do_html_header("Checkout");
+ 
 
   if(($_SESSION['cart']) && (array_count_values($_SESSION['cart']))) {
     display_cart($_SESSION['cart'], false, 0);
@@ -16,5 +17,5 @@
 
   display_button("show_cart.php", "continue-shopping", "Continue Shopping");
 
-  do_html_footer();
+  require('footer.php');
 ?>

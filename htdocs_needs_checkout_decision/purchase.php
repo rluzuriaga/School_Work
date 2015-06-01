@@ -1,10 +1,10 @@
 <?php
-
+  require('header.php');
   include ('paper_fns.php');
   // The shopping cart needs sessions, so start one
   session_start();
 
-  do_html_header("Checkout");
+  do_html_heading("Checkout");
 
   // create short variable names
   $name = $_POST['name'];
@@ -35,5 +35,5 @@
     display_button('checkout.php', 'back', 'Back');
   }
 
-  do_html_footer();
+  require('footer.php');
 ?>
