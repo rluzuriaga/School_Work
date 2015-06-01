@@ -4,7 +4,9 @@
 require_once('paper_fns.php');
 session_start();
 $old_user = $_SESSION['valid_user'];  // store  to test if they *were* logged in
-unset($_SESSION['valid_user']);
+unset($_session['valid_user'];
+session_unset();
+session = array();
 session_destroy();
 
 // start output html

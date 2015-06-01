@@ -39,8 +39,8 @@ function insert_order($order_details) {
     $customer = $result->fetch_object();
     $customerid = $customer->customerid;
   } else {
-    $query = "insert into customers values
-            ('', '".$name."','".$address."','".$city."','".$state."','".$zip."','".$country."')";
+    $query = "insert into customers (name, address, city, state, zip, country) values
+            ('".$name."','".$address."','".$city."','".$state."','".$zip."','".$country."')";
     $result = $conn->query($query);
 
     if (!$result) {

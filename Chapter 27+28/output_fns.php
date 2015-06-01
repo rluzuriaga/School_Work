@@ -23,65 +23,53 @@ function do_html_header($title = '') {
   </style>
 </head>
 <body>
-
   <!-- page header -->
   <table width="100%" cellpadding="12" cellspacing="0" border="0">
   <tr bgcolor="#15384E">
-    <td align="center"><img src="images/letterhead.jpg" height="164" width="650"></td>
-   
-    <!-- Label and link to login.php -->
-    <td width="25%" href="login.php" style="cursor:pointer">
-      <a href="login.php">
-      <span class="menu">Login</span></a></td>
-      
-    <!-- Cart to output_fns.php -->
-    <td width="25%" href="login.php" style="cursor:pointer">
-      <a href="output_fns.php">
-            
+    <td align="center"><img src="images/letterhead.jpg" height="164" width="650"></td>  
       <!-- Label and link to logout.php or show_cart -->
-
-      <td width="25%" href="show_cart.php">
+      <td width="25%" href="order.php">
       <a href="show_cart.php">
-      <img src="images/s-logo.png" height=38 width=80 />
+      <img src="images/cart.png" height="64" width="64"  />
       <span class="menu">Shopping Cart</span></a></td>
      </tr>
   </table>
-
   <!-- menu -->
-
 <!-- Label and link to Home -->
   <table width="100%" bgcolor="#CEECF5" cellpadding="4" cellspacing="4">
   <tr bgcolor="#15384E">
     <td width="25%" href="index.php" style="cursor:pointer">
       <a href="index.php">
-      <img src="images/s-logo.png" alt="" height="20" width="20" />
-      <span class="menu">Home</span></a></td>
-
-
-<!-- Label and link to About.php -->
-    <td width="25%" href="about.php" style="cursor:pointer">
-      <a href="about.php">
-      <img src="images/s-logo.png" alt="" height="20" width="20" />
-      <span class="menu">About</span></a></td>
-      
-<!-- Label and link to Products_display //-->
-    <td width="25%" href="products_display.php" style="cursor:pointer">
-      <a href="products_display.php">
-      <img src="images/s-logo.png" alt="" height="20" width="20" />
+      <img src="images/home.png" alt="" height="32" width="32" />
+      <span class="menu">Home</span></a></td>     
+<!-- Label and link to Products_state //-->
+    <td width="25%" href="show_items.php" style="cursor:pointer">
+      <a href="show_items.php">
+      <img src="images/product.png" alt="" height="32" width="32" />
       <span class="menu">Products</span></a></td> 
-
-
 <!-- Contact -->
     <td style="cursor:pointer">
     <a href="contact.php">
-      <img src="images/s-logo.png" alt="" height="20" width="20" />
+      <img src="images/contact.png" alt="" height="32" width="32" />
       <span class="menu">Contact</span></td>
-
-
-
+<!-- Label and link to login.php or logout.php -->
+<?php    
+    if(isset($_SESSION['valid_user'])) {
+      echo "<td width=\"25%\" href=\"logout.php\" style=\"cursor:pointer\">
+      <a href=\"login.php\">
+      <img src=\"images/login.png\" alt=\"\" height=\"32\" width=\"32\" />
+      <span class=\"menu\">Logout</span></a></td>";
+    }
+    else {
+      echo "<td width=\"25%\" href=\"login.php\" style=\"cursor:pointer\">
+      <a href=\"login.php\">
+      <img src=\"images/login.png\" alt=\"\" height=\"32\" width=\"32\" />
+      <span class=\"menu\">Login</span></a></td>";
+    }
+?>	
+    
   </tr>
   </table>
-
 <?php
   if($title) {
     do_html_heading($title);
@@ -103,18 +91,19 @@ function do_html_footer() {
     <!-- Begin Link Bar -->   
     <table style="float: left;" width="100%" bgcolor="black" cellpadding="20" border="0">
       <p class="foot">
-
     <!--Terms of Service -->
     <td style="text-align:center;">
     <a href="tos.php">
       <span class="menu">Terms Of Service</span></td>
-      
     <!--Feedback -->
     <td style="text-align:center;">
     <a href="Feedback.php">
       <span class="menu">Feedback</span></td>
-</p>
-    
+    <!--About.php -->
+    <td style="text-align:center;">
+    <a href="about.php">
+      <span class="menu">About</span></td>
+    </p>  
   </tr>
   </table>
 </body>
@@ -180,23 +169,6 @@ function display_forgot_form() {
 <?php
 }
 
-function display_categories($cat_array) {
-  if (!is_array($cat_array)) {
-     echo "<p>No categories currently available</p>";
-     return;
-  }
-  echo "<ul>";
-  foreach ($cat_array as $row)  {
-    $url = "show_cat.php?catid=".$row['catid'];
-    $title = $row['catname'];
-    echo "<li>";
-    do_html_url($url, $title);
-    echo "</li>";
-  }
-  echo "</ul>";
-  echo "<hr />";
-}
-
 function display_items($item_array) {
   //display all items in the array passed in
   if (!is_array($item_array)) {
@@ -210,7 +182,7 @@ function display_items($item_array) {
       $url = "show_item.php?item_num=".$row['item_num'];
       echo "<tr><td>";
       if (@file_exists("images/".$row['item_num'].".jpg")) {
-        $title = "<img src=\"images/".$row['item_num'].".jpg\"
+        $title = "<img src=\"images/".$row['item_num'].".jpg\" width=\"320\" height=\"320\"
                   style=\"border: 1px solid black\"/>";
         do_html_url($url, $title);
       } else {
@@ -259,35 +231,72 @@ function display_item_details($item) {
 
 function display_checkout_form() {
   //display the form that asks for name and address
+  if(isset($_SESSION['valid_user'])) {
+    $username = $_SESSION['valid_user'];
+    $fields = array(
+    array("name", 50),
+    array("address", 100),
+    array("city", 30),
+    array("state", 2),
+    array("zip", 10),
+    array("country", 20)
+    );
+    echo "<br />
+    <table border=\"0\" width=\"100%\" cellspacing=\"0\">
+    <form action=\"purchase.php\" method=\"post\">
+    <tr><th colspan=\"2\" bgcolor=\"#cccccc\">Your Details</th></tr>";
+    for($x = 0; $x < count($fields); $x++) {
+      $conn = db_connect();
+      $query = "select ".$fields[$x][0]." from customers where userid = '".$username."'";
+      $result = @$conn->query($query);
+      echo 
+      "<tr>
+        <td>".ucfirst($fields[$x][0])."
+        <td><input type=\"text\" name=\"".$fields[$x][0]."\" 
+        value=\"".$result->fetch_assoc()."\" 
+        maxlength=\"".$fields[$x][1]."\" size=\"40\"/></td>
+       </tr>";
+    }
+  }
+  else {
+    echo "<br />
+    <table border=\"0\" width=\"100%\" cellspacing=\"0\">
+    <form action=\"purchase.php\" method=\"post\">
+    <tr><th colspan=\"2\" bgcolor=\"#cccccc\">Your Details</th></tr>
+    <tr>
+     <td>Name</td>
+     <td><input type=\"text\" name=\"name\" value=\"\" maxlength=\"50\" size=\"40\"/></td>
+    </tr>
+    <tr>
+    <tr>
+     <td>Address</td>
+     <td><input type=\"text\" name=\"address\" value=\"\" maxlength=\"100\" size=\"40\"/>
+     </td>
+    </tr>
+    <tr>
+    <tr>
+     <td>City</td>
+     <td><input type=\"text\" name=\"city\" value=\"\" maxlength=\"30\" size=\"40\"/></td>
+    </tr>
+    <tr>
+    <tr>
+     <td>State</td>
+     <td><input type=\"text\" name=\"state\" value=\"\" maxlength=\"2\" size=\"40\"/></td>
+    </tr>
+    <tr>
+    <tr>
+     <td>Zip</td>
+     <td><input type=\"text\" name=\"zip\" value=\"\" maxlength=\"10\" size=\"40\"/></td>
+    </tr>
+    <tr>
+    <tr>
+     <td>Country</td>
+     <td><input type=\"text\" name=\"country\" value=\"\" maxlength=\"20\" size=\"40\"/>
+     </td>
+    </tr>
+    <tr>";
+  }
 ?>
-  <br />
-  <table border="0" width="100%" cellspacing="0">
-  <form action="purchase.php" method="post">
-  <tr><th colspan="2" bgcolor="#cccccc">Your Details</th></tr>
-  <tr>
-    <td>Name</td>
-    <td><input type="text" name="name" value="" maxlength="40" size="40"/></td>
-  </tr>
-  <tr>
-    <td>Address</td>
-    <td><input type="text" name="address" value="" maxlength="40" size="40"/></td>
-  </tr>
-  <tr>
-    <td>City/Suburb</td>
-    <td><input type="text" name="city" value="" maxlength="20" size="40"/></td>
-  </tr>
-  <tr>
-    <td>State/Province</td>
-    <td><input type="text" name="state" value="" maxlength="20" size="40"/></td>
-  </tr>
-  <tr>
-    <td>Postal Code or Zip Code</td>
-    <td><input type="text" name="zip" value="" maxlength="10" size="40"/></td>
-  </tr>
-  <tr>
-    <td>Country</td>
-    <td><input type="text" name="country" value="" maxlength="20" size="40"/></td>
-  </tr>
   <tr><th colspan="2" bgcolor="#cccccc">Shipping Address (leave blank if as above)</th></tr>
   <tr>
     <td>Name</td>

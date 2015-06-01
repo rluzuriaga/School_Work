@@ -44,16 +44,7 @@
     echo "<p>There are no items in your cart</p><hr/>";
   }
 
-  $target = "index.php";
-
-  // if we have just added an item to the cart, continue shopping in that category
-  if($new)   {
-    $details =  get_item_details($new);
-    if($details['catid']) {
-      $target = "show_cat.php?catid=".$details['catid'];
-    }
-  }
-  display_button($target, "continue-shopping", "Continue Shopping");
+  display_button("show_items.php", "continue-shopping", "Continue Shopping");
 
   // use this if SSL is set up
   // $path = $_SERVER['PHP_SELF'];

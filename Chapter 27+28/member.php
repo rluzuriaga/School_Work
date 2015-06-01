@@ -4,6 +4,8 @@
 require_once('paper_fns.php');
 session_start();
 
+do_html_header();
+
 //create short variable names
 $username = $_POST['userid'];
 $password = $_POST['password'];
@@ -17,7 +19,7 @@ if ($username && $password) {
   }
   catch(Exception $e)  {
     // unsuccessful login
-    do_html_header('Problem:');
+    do_html_heading('Problem:');
     echo 'You could not be logged in.
           You must be logged in to view this page.';
     do_html_url('login.php', 'Login');

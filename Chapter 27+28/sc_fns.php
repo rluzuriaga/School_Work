@@ -7,49 +7,11 @@ function calculate_shipping_cost() {
   return 20.00;
 }
 
-function get_categories() {
-   // query database for a list of categories
-   $conn = db_connect();
-   $query = "select catid, catname from categories";
-   $result = @$conn->query($query);
-   if (!$result) {
-     return false;
-   }
-   $num_cats = @$result->num_rows;
-   if ($num_cats == 0) {
-      return false;
-   }
-   $result = db_result_to_array($result);
-   return $result;
-}
-
-function get_category_name($catid) {
-   // query database for the name for a category id
-   $conn = db_connect();
-   $query = "select catname from categories
-             where catid = '".$catid."'";
-   $result = @$conn->query($query);
-   if (!$result) {
-     return false;
-   }
-   $num_cats = @$result->num_rows;
-   if ($num_cats == 0) {
-      return false;
-   }
-   $row = $result->fetch_object();
-   return $row->catname;
-}
-
-
-function get_items($catid) {
-   // query database for the items in a category
-   if ((!$catid) || ($catid == '')) {
-     return false;
-   }
+function get_items() {
 
    $conn = db_connect();
 //Replaced 'books' with 'items
-   $query = "select * from items where catid = '".$catid."'";
+   $query = "select * from items";
    $result = @$conn->query($query);
    if (!$result) {
      return false;

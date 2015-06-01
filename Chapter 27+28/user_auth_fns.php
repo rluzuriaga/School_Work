@@ -20,7 +20,7 @@ function register($username, $email, $password) {
   }
 
   // if ok, put in db
-  $result = $conn->query("insert into customers values
+  $result = $conn->query("insert into customers (userid, password, email_address) values
                          ('".$username."', sha1('".$password."'), '".$email."')");
   if (!$result) {
     throw new Exception('Could not register you in database - please try again later.');
@@ -45,12 +45,14 @@ function login($username, $password) {
                          where userid ='".$username."'
                          and password = sha1('".$password."')");
   if (!$result) {
+	 throw new Exception();
      return 0;
   }
 
   if ($result->num_rows>0) {
      return 1;
   } else {
+	 throw new Exception();
      return 0;
   }
 }

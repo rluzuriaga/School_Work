@@ -1,6 +1,7 @@
 <!--Insert Header -->
 <?php
 include('paper_fns.php');
+do_html_header();
 ?>
 <html>
 <head>

@@ -8,6 +8,7 @@
   $username=$_POST['userid'];
   $password=$_POST['password'];
   $password2=$_POST['password2'];
+echo $email;
   // start session which may be needed later
   // start it now because it must go before headers
   session_start();
@@ -43,7 +44,6 @@
     // provide link to members page
     do_html_header('Registration successful');
     echo 'Your registration was successful!';
-    do_html_url('member.php', 'Go to members page');
 
    // end page
    do_html_footer();
