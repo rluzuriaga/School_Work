@@ -1,7 +1,7 @@
 /*
 	Rodrigo Luzuriaga
-	Project #2
-	CSCI 110 TTH
+	Project #2 - Question #1
+	CSCI 110 T/TH
 	5/3/2016
 */
 
