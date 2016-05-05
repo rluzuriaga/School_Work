@@ -2,7 +2,7 @@
 	Rodrigo Luzuriaga
 	Project #2 - Question #1
 	CSCI 110 T/TH
-	5/3/2016
+	Due - 5/3/2016
 */
 
 #include <iostream>
@@ -19,11 +19,10 @@ main()
 	
 	
 	
-	while (array_position <= array_length)
+	while (array_position < array_length)
 	{
 		if (ages[array_position] >= 1 && ages[array_position] <= 16)
 		{
-			// cout << "Test" << endl;  // just added this line to test uncomment to see why I added the infant -= 1 at the end
 			infant++;
 		}
 		else if (ages[array_position] > 16 && ages[array_position] <= 29)
@@ -49,9 +48,7 @@ main()
 		
 		array_position++;
 	}
-	
-	infant -= 1; // the loop was using an extra "infant++" so I am subracting it here. Honestly not sure why the loop was doing this but this was a simple fix.
-	
+
 	cout << array_length << " people in the census." << endl;
 	cout << "Infant population: " << infant << endl;
 	cout << "Young population: " << young << endl;

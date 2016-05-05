@@ -2,7 +2,7 @@
 	Rodrigo Luzuriaga
 	Project #2 - Question #3
 	CSCI 110 T/TH
-	5/3/2016
+	Due - 5/3/2016
 */
 
 #include <iostream>
