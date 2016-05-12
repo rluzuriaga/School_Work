@@ -1,28 +1,3 @@
-#include<iostream>
-
-using namespace std;
-
-int main()
-{
-	long bin, dec = 0, rem, num, base = 1;
-
-	cout << "Enter the binary number(1s and 0s) : ";
-	cin >> num;
-	bin = num;
-	while (num > 0)
-	{
-		rem = num % 10;
-		dec = dec + rem * base;
-		base = base * 2;
-		num = num / 10;
-	}
-	cout << "The decimal equivalent of " << bin << " : " << dec << endl;
-	return 0;
-}
-
-
-
-
 /*
 	Rodrigo Luzuriaga
 	Project #3 - Question #2a
@@ -40,8 +15,8 @@ main()
 	//Variable declation
 	string input;
 	int input_size;
-	int i, a;
-	int addition, addition_of_totals, total;
+	int i, a, b = 0;
+	int addition = 0, addition_of_totals, total;
 	int placeholder = 0;
 	vector<char> binary_char_vect;
 	vector<int> binary_int_vect;
@@ -88,38 +63,108 @@ main()
 	cout << endl << endl;
 
 
+	// for (i = 0; i <= input_size; i++)
+	// {
+	// 	if (i == 0 && binary_int_vect[i] == 1)
+	// 	{
+	// 		a = 1;
+	// 		b = b + 1;
+	// 	}
+	// 	else if (i == 0 && binary_int_vect[i] == 0)
+	// 	{
+	// 		a = 0;
+	// 		b = b + 1;
+	// 	}
+	// 	else if (i == 1 && binary_int_vect[0] == 0)
+	// 	{
+	// 		a = 2;
+	// 		b = b * 2;
+	// 	}
+	// 	else if (i != 0 && binary_int_vect[i] == 1)
+	// 	{
+	// 		a = a * 2;
+	// 		b = b * 2;
+	// 	}
+	// 	else if (i != 0 && binary_int_vect[i] == 0)
+	// 	{
+	// 		a = a;
+	// 		b = b * 2;
+	// 	}
+
+	// 	placeholder++;
+
+
+	// 	cout << "This is the position in the loop (starts at 0): " << i << endl;
+	// 	cout << "This is the binary number in the position of the loop: " << binary_int_vect[i] << endl;
+	// 	cout << "This is a: " << a << endl;
+	// 	cout << "This is b: " << b << endl;
+	// 	cout << "This is the placeholder: " << placeholder << endl << endl << endl << endl;
+	// }
+	
+	
 	for (i = 0; i <= input_size; i++)
 	{
-		if (i == 0 && binary_int_vect[i] == 1)
-		{
-			a = 1;
-		}
-		else if (i == 0 && binary_int_vect[i] == 0)
-		{
-			a = 0;
-		}
-		else if (i == 1 && binary_int_vect[0] == 0)
-		{
-			a = 2;
-		}
-		else if (i != 0 && binary_int_vect[i] == 1)
-		{
-			a = a * 2;
-		}
-		else if (i != 0 && binary_int_vect[i] == 0)
-		{
-			a = a;
-		}
-
-		placeholder++;
-
-
-		cout << "This is the position in the loop (starts at 0): " << i << endl;
+	    if (i == 0)
+	    {
+	        if (binary_int_vect[i] == 1)
+	        {
+	            a = 1;
+	            b = b + 1;
+	            addition = addition + b;
+	        }
+	        else if (binary_int_vect[i] == 0)
+	        {
+	        	a = 0;
+	        	b = b + 1;
+	        	addition = addition + a;
+	        }
+	    }
+	    else if (i == 1)
+	    {
+	    	if (binary_int_vect[0] == 0)
+	    	{
+	    		a = 2;
+	    		b = b * 2;
+	    		addition = addition + b;
+	    	}
+	    	else
+	    	{
+	    		b = b * 2;
+	    		addition = addition + b;
+	    	}
+	    }
+	    else if (i != 0 && i != 1)
+	    {
+	    	if (binary_int_vect[i] == 1)
+	    	{
+	    		a = 1;
+	    		b = b * 2;
+	    		addition = addition + b;
+	    	}
+	    	else if (binary_int_vect[i] == 0)
+	    	{
+	    		a = 0;
+	    		b = b;
+	    		addition = addition + b;
+	    	}
+	    }
+	    
+	    placeholder++;
+	    
+	    cout << "This is the position in the loop (starts at 0): " << i << endl;
 		cout << "This is the binary number in the position of the loop: " << binary_int_vect[i] << endl;
 		cout << "This is a: " << a << endl;
+		cout << "This is b: " << b << endl;
+		cout << "This is the addition: " << addition << endl;
 		cout << "This is the placeholder: " << placeholder << endl << endl << endl << endl;
+	    
 	}
 
+
+
+
+
+	
 /*
 
 
