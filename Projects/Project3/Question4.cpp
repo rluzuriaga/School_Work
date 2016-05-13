@@ -16,13 +16,15 @@ main()
 	string palidrome_input_original;
 	int input_size;
 	int placeholder;
-	int skip_int = -1;
+//	int skip_int = -1;
+	int i;
 	vector<char> pal;
 	vector<char> pal_backwards;
 
 	cout << "Please enter a word(s) to check is if is a palidrome: ";
 	getline(cin, palidrome_input);
-	
+	cin.ignore('\n');
+
 	palidrome_input_original = palidrome_input;
 	input_size = palidrome_input_original.size();
 	input_size--;
@@ -30,9 +32,9 @@ main()
 	placeholder = input_size;
 
 
-	cout << "Input size: " << input_size << endl;
+	cout << "Input size: " << input_size << endl << endl;
 
-	for (int i = 0; i <= input_size; i++)
+	for (i = 0; i <= input_size; i++)
 	{
 		if (palidrome_input[i] == ' ')
 		{
@@ -41,14 +43,21 @@ main()
 		else
 		{	
 			pal.push_back(palidrome_input[i]);
-			pal_backwards.push_back(palidrome_input[placeholder]);
 		}
 
 		cout << "This is the pal vector using [i]: " << pal[i] << endl;
-		cout << "This is the pal_backwards vector using [placeholder] (should be the same as last output, if not then the word(s) is not a palidrome): " << pal_backwards[placeholder--] << endl;
-		placeholder--;
 	}
 
+	cout << endl << endl << endl;
+
+	for (i = input_size; i >= 0; i--)
+	{
+		pal_backwards.push_back(pal[i]);
+		cout << pal_backwards[i];
+		//	cout << "This is the pal_backwards vector should be the backwards result of the last outputs: " << pal_backwards[i] << endl;
+	}
+
+	cout << endl << endl;
 
 
 
