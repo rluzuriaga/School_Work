@@ -23,7 +23,7 @@ main()
 
 	cout << "Please enter a word(s) to check is if is a palidrome: ";
 	getline(cin, palidrome_input);
-	cin.ignore('\n');
+// 	cin.ignore('\n');
 
 	palidrome_input_original = palidrome_input;
 	input_size = palidrome_input_original.size();
@@ -38,7 +38,7 @@ main()
 	{
 		if (palidrome_input[i] == ' ')
 		{
-			continue;
+			i += 1;
 		}
 		else
 		{	
@@ -50,12 +50,28 @@ main()
 
 	cout << endl << endl << endl;
 
-	for (i = input_size; i >= 0; i--)
-	{
-		pal_backwards.push_back(pal[i]);
-		cout << pal_backwards[i];
-		//	cout << "This is the pal_backwards vector should be the backwards result of the last outputs: " << pal_backwards[i] << endl;
-	}
+    i = input_size;
+    while (i >= 0)
+    {
+        pal_backwards.push_back(palidrome_input[i]);
+        i--;
+    }
+    
+    i = 0;
+    while (i <= input_size)
+    {
+        cout << "This should be the backwards of the input: " << pal_backwards[i] << endl;
+        i++;
+    }
+
+
+// 	for (i = input_size; i >= 0; i--)
+// 	{
+// 	    cout << "This should be the backwards of pal: " << pal[i] << endl;
+// 		pal_backwards.push_back(pal[i]);
+// // 		cout << pal_backwards[i];
+// 		//	cout << "This is the pal_backwards vector should be the backwards result of the last outputs: " << pal_backwards[i] << endl;
+// 	}
 
 	cout << endl << endl;
 
