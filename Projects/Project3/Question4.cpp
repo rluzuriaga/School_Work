@@ -1,79 +1,98 @@
 /*
-	Rodrigo Luzuriaga
-	Project #3 - Question #4
-	CSCI 110 - T/Th
-*/
+ * Rodrigo Luzuriaga
+ * Project #3 - Question #4
+ * CSCI 110 - T/Th
+ */
+
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
-main()
+main ()
 {
-	//Variable declaration.
-	string palidrome_input;
-	string palidrome_input_original;
+	//Variable declaration
+	string palidrome_in, palidrome_in_og;
+	string palidrome_1, palidrome_2;
 	int input_size;
-	int placeholder;
-//	int skip_int = -1;
+	int palidrome_size;
 	int i;
-	vector<char> pal;
-	vector<char> pal_backwards;
+	int word_tester = 0;
+	int spacer = 0, alt_spacer = 0;
 
-	cout << "Please enter a word(s) to check is if is a palidrome: ";
-	getline(cin, palidrome_input);
-// 	cin.ignore('\n');
 
-	palidrome_input_original = palidrome_input;
-	input_size = palidrome_input_original.size();
+	cout << "Please enter a word(s) to check if it is a palidrome: ";
+	getline(cin, palidrome_in);
+
+	palidrome_in_og = palidrome_in;
+	input_size = palidrome_in_og.size();
+
 	input_size--;
-
-	placeholder = input_size;
-
-
-	cout << "Input size: " << input_size << endl << endl;
+	cout << "Input size (starts from 0): " << input_size << endl;
 
 	for (i = 0; i <= input_size; i++)
 	{
-		if (palidrome_input[i] == ' ')
+		if (palidrome_in[i] == ' ')
 		{
-			i += 1;
+			if (spacer == 0)
+			{
+				spacer = i;
+			}
+			else
+			{
+				alt_spacer = i;
+			}
 		}
 		else
-		{	
-			pal.push_back(palidrome_input[i]);
+		{
+			if (palidrome_in[i] >= 65 && palidrome_in[i] <= 90)
+			{
+				string test_letter;
+				cout << "This is the capital letter: " << palidrome_in[i] << endl;
+				palidrome_in[i] = palidrome_in[i] + 32;
+				cout << "Thsi should be the lowercase of last output: " << palidrome_in[i] << endl;
+			}
+			palidrome_1 = palidrome_1 + palidrome_in[i];
 		}
-
-		cout << "This is the pal vector using [i]: " << pal[i] << endl;
 	}
 
-	cout << endl << endl << endl;
+	palidrome_size = palidrome_1.size();
+	cout << "Plaidrome size before the (--): " << palidrome_size << endl;
 
-    i = input_size;
-    while (i >= 0)
-    {
-        pal_backwards.push_back(palidrome_input[i]);
-        i--;
-    }
-    
-    i = 0;
-    while (i <= input_size)
-    {
-        cout << "This should be the backwards of the input: " << pal_backwards[i] << endl;
-        i++;
-    }
+	palidrome_size--;
+	cout << "Palidrome size after the (--): " << palidrome_size << endl;
 
+	cout << "This should be the palidrome without spaces and lowercase: " << palidrome_1 << endl;
 
-// 	for (i = input_size; i >= 0; i--)
-// 	{
-// 	    cout << "This should be the backwards of pal: " << pal[i] << endl;
-// 		pal_backwards.push_back(pal[i]);
-// // 		cout << pal_backwards[i];
-// 		//	cout << "This is the pal_backwards vector should be the backwards result of the last outputs: " << pal_backwards[i] << endl;
-// 	}
+	for (i = palidrome_size; i >= 0; i--)
+	{
+		palidrome_2 = palidrome_2 + palidrome_1[i];
+	}
+	cout << "This is palidrome 2: " << palidrome_2 << endl;
 
-	cout << endl << endl;
+	for  (i = 0; i <= palidrome_size; i++)
+	{
+		if (palidrome_1[i] == palidrome_2[i])
+		{
+			word_tester++;
+		}
+		else
+		{
+			word_tester--;
+		}
+	}
+
+	word_tester--;
+	cout << "Word tester (should be the same as last palidrome size): " << word_tester << endl;
+
+	if (word_tester == palidrome_size)
+	{
+		cout << "They are the same!!!" << endl;
+	}
+	else
+	{
+		cout << "They are not the same! :(" << endl;
+	}
 
 
 
