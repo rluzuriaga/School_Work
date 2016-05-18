@@ -3,7 +3,7 @@
 	Project #3 - Question #2a
 	CSCI 110 - T/Th
 */
-
+/*
 #include<iostream>
 
 using namespace std;
@@ -41,7 +41,7 @@ int main()
 	cout << "The decimal equivalent of " << binary_original << " : " << decimal << endl;
 	return 0;
 }
-
+*/
 
 
 
@@ -55,7 +55,7 @@ int main()
 
 #include <iostream>
 #include <vector>
-#include <string>
+#include <string.h>
 
 using namespace std;
 
