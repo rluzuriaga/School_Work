@@ -1,382 +1,114 @@
 /*
-	Rodrigo Luzuriaga
-	Project #3 - Question #3
-	CSCI 110 - T/Th
-*/
+ * Rodrigo Luzuriaga
+ * Project #3 - Question #3
+ * CSCI 110 - T/Th
+ */
 
 #include <iostream>
-#include <vector>
-#include <string>
-#include <map>
-#include <iterator>
+#include <string.h>
 
 using namespace std;
 
 main()
 {
-	string str;
+	cout << endl; //Just to give more space since I use the terminal.
+
+	//Variable decleration
+	string str_in;
+	string str_new;
+	char array_letter = 'a';
 	int string_length;
 	int vowel_count = 0, consonant_count = 0;
-	map <char, int> letter_map; //The map's key type will al be in capital letters but will contain how many times both capital and lower case letters are used.
-	int a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, h = 0, i = 0, j = 0, k = 0, l = 0, m = 0, n = 0, o = 0, p = 0, q = 0, r = 0, s = 0, t = 0, u = 0, v = 0, w = 0, x = 0, y = 0, z = 0;
-	
-	cout << "Please enter a string: ";
-	getline(cin, str);
-	
-	string_length = str.length();
-	
-	
-	for (int placeholder = 0; placeholder < string_length; placeholder++)
+	int array[26] = {0};
+	int i, j;
+	int spacer = 0;
+
+
+	cout << "Please enter the string: ";
+	getline(cin, str_in);
+
+	string_length = str_in.size();
+	cout << endl << "This is how many characters were inputed: " << string_length << endl;
+
+
+	string_length--; //Makes string_length start from 0 from future uses
+	// cout << string_length << endl; //Just to check
+
+
+	for (i = 0; i <= string_length; i++)
 	{
-		if (str[placeholder] == 'A' || str[placeholder] == 'a' || str[placeholder] == 'E' || str[placeholder] == 'e' || str[placeholder] == 'I' || str[placeholder] == 'i' || str[placeholder] == 'O' || str[placeholder] == 'o' || str[placeholder] == 'U' || str[placeholder] == 'u')
+		if (str_in[i] == ' ')
 		{
-			vowel_count++;
-			
-			if (str[placeholder] == 'A' || str[placeholder] == 'a')
-			{
-			    if (a == 0)
-			    {
-			        a++;
-			        letter_map["A"] = a;
-			    }
-			    else
-			    {
-			       
-				letter_map.insert["A"] 
-			    }
-			}
-			else if (str[placeholder] == 'E' || str[placeholder] == 'e')
-			{
-			    if (e == 0)
-			    {
-			        e++;
-			        letter_map["E"] = e;
-			    }
-			    else
-			    {
-			        letter_map.insert["E"] = e++;
-			    }
-			}
-			else if (str[placeholder] == 'I' || str[placeholder] == 'i')
-			{
-			    if (i == 0)
-			    {
-			        i++;
-			        letter_map["I"] = i;
-			    }
-			    else
-			    {
-			        letter_map.insert["I"] = i++;
-			    }
-			}
-			else if (str[placeholder] == 'O' || str[placeholder] == 'o')
-			{
-			    if (o == 0)
-			    {
-			        o++;
-			        letter_map["O"] = o;
-			    }
-			    else
-			    {
-			        letter_map.insert["O"] = o++;
-			    }
-			}
-			else if (str[placeholder] == 'U' || str[placeholder] == 'u')
-			{
-			    if (u == 0)
-			    {
-			        u++;
-			        letter_map["U"] = u;
-			    }
-			    else
-			    {
-			        letter_map.insert["U"] = u++;
-			    }
-			}
-		}
-		else if (str[placeholder] == ' ' || str[placeholder] == '.' || str[placeholder] == ',' || str[placeholder] == '?' || str[placeholder] == '!' || str[placeholder] == '"' || str[placeholder] == '\'' || str[placeholder] == ';' || str[placeholder] == ':' || str[placeholder] == '<' || str[placeholder] == '>' || str[placeholder] == '/' || str[placeholder] == '-' || str[placeholder] == '_' || str[placeholder] == '`' || str[placeholder] == '(' || str[placeholder] == ')' || str[placeholder] == '[' || str[placeholder] == ']' || str[placeholder] == '{' || str[placeholder] == '}' || str[placeholder] == '\\' || str[placeholder] == '|' || str[placeholder] == '*' || str[placeholder] == '&' || str[placeholder] == '^' || str[placeholder] == '%' || str[placeholder] == '$' || str[placeholder] == '#' || str[placeholder] == '@' || str[placeholder] == '+' || str[placeholder] == '=')
-		{
-			vowel_count = vowel_count;
-			consonant_count = consonant_count;
+			spacer = i;
 		}
 		else
 		{
-			consonant_count++;
-			
-			if (str[placeholder] == 'B' || str[placeholder] == 'b')
+			if (str_in[i] >= 65 && str_in[i] <= 90)
 			{
-			    if (b == 0)
-			    {
-			    	b++;
-			        letter_map["B"] = b;
-			    }
-			    else
-			    {
-			        letter_map.insert["B"] = b++;
-			    }
+				str_in[i] = str_in[i] + 32;
 			}
-			else if (str[placeholder] == 'C' || str[placeholder] == 'c')
+			str_new = str_new + str_in[i];
+		}
+	}
+
+//	cout << "This should be the string (all lowercase): " << str_new << endl;
+	string_length = str_new.size();
+	//cout << "This is the new string length: " << string_length << endl;
+	string_length--;
+
+	for (i = 0; i <= string_length; i++)
+	{
+		for (j = 97; j < 123; j++)
+		{
+			if (str_new[i] == j)
 			{
-			    if (c == 0)
-			    {
-			        c++;
-			        letter_map["C"] = c;
-			    }
-			    else
-			    {
-			        letter_map.insert["C"] = c++;
-			    }
-			}
-			else if (str[placeholder] == 'D' || str[placeholder] == 'd')
-			{
-			    if (d == 0)
-			    {
-			        d++;
-			        letter_map["D"] = d;
-			    }
-			    else
-			    {
-			        letter_map.insert["D"] = d++;
-			    }
-			}
-			else if (str[placeholder] == 'F' || str[placeholder] == 'f')
-			{
-			    if (f == 0)
-			    {
-			        f++;
-			        letter_map["F"] = f;
-			    }
-			    else
-			    {
-			        letter_map.insert["F"] = f++;
-			    }
-			}
-			else if (str[placeholder] == 'G' || str[placeholder] == 'g')
-			{
-			    if (g == 0)
-			    {
-			        g++;
-			        letter_map["G"] = g;
-			    }
-			    else
-			    {
-			        letter_map.insert["G"] = g++;
-			    }
-			}
-			else if (str[placeholder] == 'H' || str[placeholder] == 'h')
-			{
-			    if (h == 0)
-			    {
-			        h++;
-			        letter_map["H"] = h;
-			    }
-			    else
-			    {
-			        letter_map.insert["H"] = h++;
-			    }
-			}
-			else if (str[placeholder] == 'J' || str[placeholder] == 'j')
-			{
-			    if (j == 0)
-			    {
-			        j++;
-			        letter_map["J"] = j;
-			    }
-			    else
-			    {
-			        letter_map.insert["J"] = j++;
-			    }
-			}
-			else if (str[placeholder] == 'K' || str[placeholder] == 'k')
-			{
-			    if (k == 0)
-			    {
-			        k++;
-			        letter_map["K"] = k;
-			    }
-			    else
-			    {
-			        letter_map.insert["K"] = k++;
-			    }
-			}
-			else if (str[placeholder] == 'L' || str[placeholder] == 'l')
-			{
-			    if (l == 0)
-			    {
-			        l++;
-			        letter_map["L"] = l;
-			    }
-			    else
-			    {
-			        letter_map.insert["L"] = l++;
-			    }
-			}
-			else if (str[placeholder] == 'M' || str[placeholder] == 'm')
-			{
-			    if (m == 0)
-			    {
-			        m++;
-			        letter_map["M"] = m;
-			    }
-			    else
-			    {
-			        letter_map.insert["M"] = m++;
-			    }
-			}
-			else if (str[placeholder] == 'N' || str[placeholder] == 'n')
-			{
-			    if (n == 0)
-			    {
-			        n++;
-			        letter_map["N"] = n;
-			    }
-			    else
-			    {
-			        letter_map.insert["N"] = n++;
-			    }
-			}
-			else if (str[placeholder] == 'P' || str[placeholder] == 'p')
-			{
-			    if (p == 0)
-			    {
-			        p++;
-			        letter_map["P"] = p;
-			    }
-			    else
-			    {
-			        letter_map.insert["P"] = p++;
-			    }
-			}
-			else if (str[placeholder] == 'Q' || str[placeholder] == 'q')
-			{
-			    if (q == 0)
-			    {
-			        q++;
-			        letter_map["Q"] = q;
-			    }
-			    else
-			    {
-			        letter_map.insert["Q"] = q++;
-			    }
-			}
-			else if (str[placeholder] == 'R' || str[placeholder] == 'r')
-			{
-			    if (r == 0)
-			    {
-			        r++;
-			        letter_map["R"] = r;
-			    }
-			    else
-			    {
-			        letter_map.insert["R"] = r++;
-			    }
-			}
-			else if (str[placeholder] == 'S' || str[placeholder] == 's')
-			{
-			    if (s == 0)
-			    {
-			        s++;
-			        letter_map["S"] = s;
-			    }
-			    else
-			    {
-			        letter_map.insert["S"] = s++;
-			    }
-			}
-			else if (str[placeholder] == 'T' || str[placeholder] == 't')
-			{
-			    if (t == 0)
-			    {
-			        t++;
-			        letter_map["T"] = t;
-			    }
-			    else
-			    {
-			        letter_map.insert["T"] = t++;
-			    }
-			}
-			else if (str[placeholder] == 'V' || str[placeholder] == 'v')
-			{
-			    if (v == 0)
-			    {
-			        v++;
-			        letter_map["V"] = v;
-			    }
-			    else
-			    {
-			        letter_map.insert["V"] = v++;
-			    }
-			}
-			else if (str[placeholder] == 'W' || str[placeholder] == 'w')
-			{
-			    if (w == 0)
-			    {
-			        w++;
-			        letter_map["W"] = w;
-			    }
-			    else
-			    {
-			        letter_map.insert["W"] = w++;
-			    }
-			}
-			else if (str[placeholder] == 'X' || str[placeholder] == 'x')
-			{
-			    if (x == 0)
-			    {
-			        x++;
-			        letter_map["X"] = x;
-			    }
-			    else
-			    {
-			        letter_map.insert["X"] = x++;
-			    }
-			}
-			else if (str[placeholder] == 'Y' || str[placeholder] == 'y')
-			{
-			    if (y == 0)
-			    {
-			        y++;
-			        letter_map["Y"] = y;
-			    }
-			    else
-			    {
-			        letter_map.insert["Y"] = y++;
-			    }
-			}
-			else if (str[placeholder] == 'Z' || str[placeholder] == 'z')
-			{
-			    if (z == 0)
-			    {
-			        z++;
-			        letter_map["Z"] = z;
-			    }
-			    else
-			    {
-			        letter_map.insert["Z"] = z++;
-			    }
+				array[j - 97]++;
+				// cout << "Array " << i << ": " << array[j - 97] << endl;
+				j = 123;
 			}
 		}
 	}
-	
-	
-	for(map <char, int>::const_iterator it = letter_map.begin();it != letter_map.end(); it++)
+
+	cout << endl;
+
+	for (i = 0; i < 26; i++)
 	{
-		cout << it->first << " " << it->second << "\n";
+		if (array[i] != 0)
+		{
+			cout << "The letter " << char(i + 65) << " has appeared " << array[i] << " time(s)." << endl;
+		}
 	}
-	
-	cout << "Amount of characters in string: " << string_length << endl;
-	cout << "Vowels: " << vowel_count << endl;
-	cout << "Consonants: " << consonant_count << endl;
-	
+
+	cout << endl << endl;
+
+	int highest_array_value = 0;
+	int highest_number;
+	for  (i = 0; i < 26; i++)
+	{
+		if (array[i] > highest_array_value)
+		{
+			highest_array_value = array[i];
+			highest_number = i;
+			//cout << "Array " << highest_number << " : " << highest_array_value << endl;
+		}
+	}
+	cout << "Array " << char(highest_number + 65) << " is the highest letter used. It is used " << highest_array_value << " times." << endl;
+
+//	cout << "this is the highest array value: " << highest_array_value << endl;
+
+	int second_highest_array_value = highest_array_value;
+	int second_highest_number;
+	int placeholder = 0;
+	for (i = 0; i < 26; i++)
+	{
+		if (array[i] < highest_array_value && array[i] > placeholder)
+		{
+			second_highest_array_value = array[i];
+			second_highest_number = i;
+			placeholder++;
+			//cout << "Array " << second_highest_number << " : " << second_highest_array_value << endl;
+		}
+	}
+//	cout << "This is the placeholder: " << placeholder << endl;
+	cout << "Array " << char(second_highest_number + 65) << " is the second highest letter user. It is used " << second_highest_array_value << " times." << endl;
 }
-
-
-
-
-
-
-
-
-
-
-
