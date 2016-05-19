@@ -1,29 +1,74 @@
 /*
- * Rodrigo Luzuriaga
- * Project #3 - Question #2a
- * CSCI 110 - T/Th
- */
+	Rodrigo Luzuriaga
+	Project #3 - Question #2a
+	CSCI 110 - T/Th
+*/
+/*
+#include<iostream>
+
+using namespace std;
+ 
+int main()
+{
+	long binary_original;
+	long decimal = 0;
+	long remaining;
+	long input;
+	long base_number = 1;
+ 
+	cout << "Please enter the binary that you want to convert to decimal: ";
+	cin >> input;
+	
+	binary_original = input;
+	
+	cout << endl;
+	
+	while (input > 0)
+	{
+		remaining = input % 10;
+		// cout << "This is the remainder (remaining = input % 10):  " << remaining << endl;  //These were all added to test 
+		
+		decimal = decimal + remaining * base_number;
+		// cout << "This s the decimal (decimal = decimal + remaining * base_number):  " << decimal << endl;  //These were all added to test 
+		
+		base_number = base_number * 2;
+		// cout << "This is the base number (base_number = base_number * 2):  " << base_number << endl;  //These were all added to test 
+		
+		input = input / 10;
+		// cout << "This is the input at the end of the loop (input = input / 10):  " << input << endl << endl;  //These were all added to test 
+		
+	}
+	cout << "The decimal equivalent of " << binary_original << " : " << decimal << endl;
+	return 0;
+}
+*/
+
+
+
+
+
+/*
+    Rodrigo Luzuriaga
+    Project #3 - Question #2a
+    CSCI 110 - T/Th
+*/
 
 #include <iostream>
 #include <vector>
 #include <string.h>
-#include <fstream>
 
 using namespace std;
 
 main()
 {
     //Variable declation
-    ofstream myfile;
     string input;
     int input_size;
-    long long i, a, b = 0;
-    long long addition = 0, addition_of_totals, total;
+    int i, a, b = 0;
+    int addition = 0, addition_of_totals, total;
     int placeholder = 0;
     vector<char> binary_char_vect;
     vector<int> binary_int_vect;
-
-    myfile.open("output");
 
     cout << "Please enter the binary that you want to convert to decimal: ";
     cin >> input;
@@ -49,22 +94,22 @@ main()
         }
         else
         {
-            myfile << "Woaw! A binary number can only contain 0's and 1's! You entered something other than that!!" << endl;
+            cout << "Woaw! A binary number can only contain 0's and 1's! You entered something other than that!!" << endl;
             return 0;
         }
         binary_int_vect.push_back(a);
     }
 
-    myfile << endl;
+    cout << endl;
 
-    myfile << "This is the binary number backwards: ";
+    cout << "This is the binary number backwards: ";
 
     for (i = 0; i <= input_size; i++)
     {
-        myfile << binary_int_vect[i];
+        cout << binary_int_vect[i];
     }
 
-    myfile << endl << endl;
+    cout << endl << endl;
 
 
     // for (i = 0; i <= input_size; i++)
@@ -105,77 +150,70 @@ main()
     //     cout << "This is the placeholder: " << placeholder << endl << endl << endl << endl;
     // }
     
-
-	for (i = 0; i <= input_size; i++)
-	{
-		if (i == 0)
-		{
-			if (binary_int_vect[i] == 1)
-			{
-				a = 1;
-				b = b + 1;
-				addition = addition + b;
-			}
-			else if (binary_int_vect[i] == 0)
-			{
-				a = 0;
-				b = b + 1;
-			}
-			else
-			{
-				myfile << "Error 1" << endl;
-			}
-		}
-		else if (i == 1)
-		{
-			if (binary_int_vect[0] == 0)
-			{
-				a = 2;
-				b = b * 2;
-				addition = addition + b;
-			}
-			else if (binary_int_vect[0] == 1)
-			{
-				b = b * 2;
-				addition = addition + b;
-			}
-			else
-			{
-				myfile << "Error 2" << endl;
-			}
-		}
-		else if (i != 0 && i != 1)
-		{
-			if (binary_int_vect[i] == 1)
-			{
-				a = 1;
-				b = b * 2;
-				addition = addition + b;
-			}
-			else if (binary_int_vect[i] == 0)
-			{
-				a = 0;
-				b = b * 2;
-			}
-			else
-			{
-				myfile << "Error 3" << endl;
-			}
-		}
-
-		placeholder++;
-		myfile << "This is the position in the loop (starts at 0): " << i << endl;
-		myfile << "This is the binary number in the position of the loop: " << binary_int_vect[i] << endl;
-		myfile << "This is a: " << a << endl;
-		myfile << "This is b: " << b << endl;
-		myfile << "This is the addition: " << addition << endl;
-		myfile << "This is the placeholder: " << placeholder << endl << endl << endl << endl;
-	}
+    
+    for (i = 0; i <= input_size; i++)
+    {
+        if (i == 0)
+        {
+            if (binary_int_vect[i] == 1)
+            {
+                a = 1;
+                b = b + 1;
+                addition = addition + b;
+            }
+            else if (binary_int_vect[i] == 0)
+            {
+                a = 0;
+                b = b + 1;
+                addition = addition + a;
+            }
+        }
+        else if (i == 1)
+        {
+            if (binary_int_vect[0] == 0)
+            {
+                a = 2;
+                b = b * 2;
+                addition = addition + b;
+            }
+            else
+            {
+                b = b * 2;
+                addition = addition + b;
+            }
+        }
+        else if (i != 0 && i != 1)
+        {
+            if (binary_int_vect[i] == 1)
+            {
+                a = 1;
+                b = b * 2;
+                addition = addition + b;
+            }
+            else if (binary_int_vect[i] == 0)
+            {
+                a = 0;
+                b = b;
+                addition = addition + b;
+            }
+        }
+        
+        placeholder++;
+        
+        cout << "This is the position in the loop (starts at 0): " << i << endl;
+        cout << "This is the binary number in the position of the loop: " << binary_int_vect[i] << endl;
+        cout << "This is a: " << a << endl;
+        cout << "This is b: " << b << endl;
+        cout << "This is the addition: " << addition << endl;
+        cout << "This is the placeholder: " << placeholder << endl << endl << endl << endl;
+        
+    }
 
 
 
 
 
+    
 /*
 
 
@@ -241,3 +279,30 @@ main()
     */
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

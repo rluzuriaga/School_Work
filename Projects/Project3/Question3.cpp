@@ -6,14 +6,14 @@
 
 #include <iostream>
 #include <string.h>
+#include <fstream>
 
 using namespace std;
 
 main()
 {
-	cout << endl; //Just to give more space since I use the terminal.
-
 	//Variable decleration
+	ofstream myfile; //Only used to get the output onto a file for printing.
 	string str_in;
 	string str_new;
 	char array_letter = 'a';
@@ -23,12 +23,16 @@ main()
 	int i, j;
 	int spacer = 0;
 
-
+	myfile.open("Answers/Output_Q3.txt");
+	
 	cout << "Please enter the string: ";
 	getline(cin, str_in);
 
+	myfile << "Please enter the string: " << str_in << endl;
+
 	string_length = str_in.size();
 	cout << endl << "This is how many characters were inputed: " << string_length << endl;
+	myfile << endl << "This is how many characters were inputed: " << string_length << endl;
 
 
 	string_length--; //Makes string_length start from 0 from future uses
@@ -70,16 +74,19 @@ main()
 	}
 
 	cout << endl;
+	myfile << endl;
 
 	for (i = 0; i < 26; i++)
 	{
 		if (array[i] != 0)
 		{
 			cout << "The letter " << char(i + 65) << " has appeared " << array[i] << " time(s)." << endl;
+			myfile << "The letter " << char(i + 65) << " has appeared " << array[i] << " time(s)." << endl;
 		}
 	}
 
 	cout << endl << endl;
+	myfile << endl << endl;
 
 	int highest_array_value = 0;
 	int highest_number;
@@ -93,6 +100,7 @@ main()
 		}
 	}
 	cout << "Array " << char(highest_number + 65) << " is the highest letter used. It is used " << highest_array_value << " times." << endl;
+	myfile << "Array " << char(highest_number + 65) << " is the highest letter used. It is used " << highest_array_value << " times." << endl;
 
 //	cout << "this is the highest array value: " << highest_array_value << endl;
 
@@ -111,4 +119,7 @@ main()
 	}
 //	cout << "This is the placeholder: " << placeholder << endl;
 	cout << "Array " << char(second_highest_number + 65) << " is the second highest letter user. It is used " << second_highest_array_value << " times." << endl;
+	myfile << "Array " << char(second_highest_number + 65) << " is the second highest letter user. It is used " << second_highest_array_value << " times." << endl;
+	
+	myfile.close();
 }
