@@ -7,12 +7,14 @@
 #include <iostream>
 #include <vector>
 #include <string.h>
+#include <fstream>
 
 using namespace std;
 
 main()
 {
     //Variable declation
+    ofstream myfile;
     string input;
     int input_size;
     long long i, a, b = 0;
@@ -20,6 +22,8 @@ main()
     int placeholder = 0;
     vector<char> binary_char_vect;
     vector<int> binary_int_vect;
+
+    myfile.open("output");
 
     cout << "Please enter the binary that you want to convert to decimal: ";
     cin >> input;
@@ -45,22 +49,22 @@ main()
         }
         else
         {
-            cout << "Woaw! A binary number can only contain 0's and 1's! You entered something other than that!!" << endl;
+            myfile << "Woaw! A binary number can only contain 0's and 1's! You entered something other than that!!" << endl;
             return 0;
         }
         binary_int_vect.push_back(a);
     }
 
-    cout << endl;
+    myfile << endl;
 
-    cout << "This is the binary number backwards: ";
+    myfile << "This is the binary number backwards: ";
 
     for (i = 0; i <= input_size; i++)
     {
-        cout << binary_int_vect[i];
+        myfile << binary_int_vect[i];
     }
 
-    cout << endl << endl;
+    myfile << endl << endl;
 
 
     // for (i = 0; i <= input_size; i++)
@@ -119,7 +123,7 @@ main()
 			}
 			else
 			{
-				cout << "Error 1" << endl;
+				myfile << "Error 1" << endl;
 			}
 		}
 		else if (i == 1)
@@ -137,7 +141,7 @@ main()
 			}
 			else
 			{
-				cout << "Error 2" << endl;
+				myfile << "Error 2" << endl;
 			}
 		}
 		else if (i != 0 && i != 1)
@@ -155,17 +159,17 @@ main()
 			}
 			else
 			{
-				cout << "Error 3" << endl;
+				myfile << "Error 3" << endl;
 			}
 		}
 
 		placeholder++;
-		cout << "This is the position in the loop (starts at 0): " << i << endl;
-		cout << "This is the binary number in the position of the loop: " << binary_int_vect[i] << endl;
-		cout << "This is a: " << a << endl;
-		cout << "This is b: " << b << endl;
-		cout << "This is the addition: " << addition << endl;
-		cout << "This is the placeholder: " << placeholder << endl << endl << endl << endl;
+		myfile << "This is the position in the loop (starts at 0): " << i << endl;
+		myfile << "This is the binary number in the position of the loop: " << binary_int_vect[i] << endl;
+		myfile << "This is a: " << a << endl;
+		myfile << "This is b: " << b << endl;
+		myfile << "This is the addition: " << addition << endl;
+		myfile << "This is the placeholder: " << placeholder << endl << endl << endl << endl;
 	}
 
 
