@@ -21,11 +21,7 @@ string Space_Corrector(string input)
     {
         if (input[i] == ' ')
         {
-            if (input[j] == ' ')
-            {
-            	cout << "There are " << i << " spaces in the function before the output." << endl;
-            }
-            else
+            if (input[j] != ' ')
             {
             	output = output + input[i];
             }
@@ -61,11 +57,11 @@ main()
         }
     }
     
-    cout << "This is how many spaces are in the string originally: " << counter << endl;
+    // cout << "This is how many spaces are in the string originally: " << counter << endl;
     
     output = Space_Corrector(input);
     
-    cout << "This is the string fixing the spaces: " << output << endl;
+    cout << "This is the string fixing the spaces: " << endl << output << endl;
     
     size = output.size();
     counter = 0;
@@ -77,6 +73,6 @@ main()
         }
     }
     
-    cout << "This is the fixed number of spaces from the output: " << counter << endl;
+    // cout << "This is the fixed number of spaces from the output: " << counter << endl;
     
 }
