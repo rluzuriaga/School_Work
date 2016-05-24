@@ -2,6 +2,7 @@
  * Rodrigo Luzuriaga
  * Project #3 - Question #3
  * CSCI 110 - T/Th
+ * Due Date: 5/24/2016
  */
 
 #include <iostream>
@@ -106,18 +107,14 @@ main()
 
 	int second_highest_array_value = highest_array_value;
 	int second_highest_number;
-	int placeholder = 0;
 	for (i = 0; i < 26; i++)
 	{
-		if (array[i] < highest_array_value && array[i] > placeholder)
+		if (array[i] < highest_array_value && array[i] > i)
 		{
 			second_highest_array_value = array[i];
 			second_highest_number = i;
-			placeholder++;
-			//cout << "Array " << second_highest_number << " : " << second_highest_array_value << endl;
 		}
 	}
-//	cout << "This is the placeholder: " << placeholder << endl;
 	cout << "Array " << char(second_highest_number + 65) << " is the second highest letter user. It is used " << second_highest_array_value << " times." << endl;
 	myfile << "Array " << char(second_highest_number + 65) << " is the second highest letter user. It is used " << second_highest_array_value << " times." << endl;
 	

@@ -2,6 +2,7 @@
  * Rodrigo Luzuriaga
  * Project #3 - Question #4
  * CSCI 110 - T/Th
+ * Due Date: 5/24/2016
  */
 
 #include <iostream>
@@ -34,7 +35,6 @@ main ()
 
 	input_size--;
 //	cout << "Input size (starts from 0): " << input_size << endl;
-//	myfile << "Input size (starts from 0): " << input_size << endl;
 
 	for (i = 0; i <= input_size; i++)
 	{

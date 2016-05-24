@@ -2,6 +2,7 @@
  * Rodrigo Luzuriaga
  * Project #3 - Question #2a
  * CSCI 110 - T/Th
+ * Due Date: 5/24/2016
  */
 
 #include <iostream>
@@ -147,11 +148,5 @@ main()
 
 	myfile.close();
 }
-
-
-
-
-
-
 
 

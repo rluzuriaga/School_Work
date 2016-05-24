@@ -1,7 +1,8 @@
 /*
- *Rodrigo Luzuriaga
- *Project #3 - Question #1
- *CSCI 110 - T/TH
+ * Rodrigo Luzuriaga
+ * Project #3 - Question #1
+ * CSCI 110 - T/TH
+ * Due Date : 5/24/2016
  */
 
 #include <iostream>

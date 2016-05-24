@@ -6,7 +6,7 @@ The letter A has appeared 44 time(s).
 The letter B has appeared 6 time(s).
 The letter C has appeared 12 time(s).
 The letter D has appeared 12 time(s).
-The letter E has appeared 51 time(s).
+c
 The letter F has appeared 10 time(s).
 The letter G has appeared 8 time(s).
 The letter H has appeared 25 time(s).

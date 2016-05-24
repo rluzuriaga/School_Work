@@ -1,12 +1,12 @@
 /*
-    Rodrigo Luzuriaga
-    Project #3 - Question #2
-    CSCI 110 - T/Th
-*/
+ * Rodrigo Luzuriaga
+ * Project #3 - Question #2
+ * CSCI 110 - T/Th
+ * Due Date: 5/24/2016
+ */
 
 #include <iostream>
 #include <vector>
-
 
 using namespace std;
 
