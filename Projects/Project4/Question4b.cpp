@@ -5,7 +5,7 @@
  */
  
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <fstream>
 
 using namespace std;
@@ -14,16 +14,14 @@ using namespace std;
  * Two functions in this program to show how it works with files and also with user input.
  */
 
-// SpaceCorrector_File()
-main()
+void SpaceCorrector_File()
 {
     //Variable declaration
     ifstream original_file;
     ofstream fixed_file;
-    string text_holder_og, text_holder_modified;
+    string text_holder_og, text_modified_1, final_text;
     int i, j = 1, text_size;
     int counter = 0; // Only for testing.
-    string
     
     
     original_file.open("files/United_File");
@@ -40,7 +38,7 @@ main()
         {
             if (text_holder_og[j] != ' ')
             {
-                text_holder_modified = text_holder_modified + text_holder_og[i];
+                text_modified_1 = text_modified_1 + text_holder_og[i];
             }
             else // Only for testing purposes.
             {
@@ -49,86 +47,166 @@ main()
         }
         else
         {
-            text_holder_modified = text_holder_modified + text_holder_og[i];
+            text_modified_1 = text_modified_1 + text_holder_og[i];
         }
         j++;
     }
     
     
+    text_size = text_modified_1.size();
     
-    cout << "OG text: " << endl << text_holder_og << endl << endl;
-    cout << "New text: " << endl << text_holder_modified << endl << endl;
-    cout << "This is the counter: " << counter << endl;
+    for (i = 1; i < text_size; i++) // This for loop is only here to fix the error of having a space at the start of the new file.
+    {
+        if (text_modified_1[0] != ' ')
+        {
+            final_text = final_text + text_modified_1[i];
+        }
+        else
+        {
+            final_text = final_text + text_modified_1[i];
+        }
+    }
+    
+    
+    // cout << "OG text: " << endl << text_holder_og << endl << endl;
+    // cout << "New text: " << endl << final_text << endl << endl;
+    // cout << "This is the counter: " << counter << endl;
+    
+    
+    fixed_file << final_text << "\n";
+    
     
     original_file.close();
     fixed_file.close();
 }
 
 
-// string SpaceCorrector_cin(string input)
-// {
-//     //Variable declaration
-//     int i, j = 1, size;
-//     string output;
+string SpaceCorrector_cin(string input)
+{
+    //Variable declaration
+    int i, j = 1, size;
+    string output;
     
-//     size = input.size();
+    size = input.size();
     
-//     for (i = 0; i < size; i++)
-//     {
-//         if (input[i] == ' ')
-//         {
-//             if (input[j] != ' ')
-//             {
-//             	output = output + input[i];
-//             }
-//         }
-//         else
-//         {
-//             output = output + input[i];
-//         }
+    for (i = 0; i < size; i++)
+    {
+        if (input[i] == ' ')
+        {
+            if (input[j] != ' ')
+            {
+                output = output + input[i];
+            }
+        }
+        else
+        {
+            output = output + input[i];
+        }
         
-//         j++;
-//     }
+        j++;
+    }
     
-//     return output;
-// }
+    return output;
+}
 
-// main()
-// {
-//     //Variable declaration
-//     string input;
-//     string output;
-//     int i, size, counter = 0;
+string SpaceCorrector_cin_test(string input)
+{
+    //Variable declaration
+    int i, j = 1, size;
+    string output;
+    // string input;
     
-//     cout << "Please enter a string: ";
-//     getline(cin, input);
+    // cout << "Please enter a string: ";
+    // getline(cin, input);
     
-//     size = input.size();
+    size = input.size();
     
-//     for (i = 0; i < size; i++)
-//     {
-//         if (input[i] == ' ')
-//         {
-//             counter++;
-//         }
-//     }
+    for (i = 0; i < size; i++)
+    {
+        if (input[i] == ' ')
+        {
+            if (input[j] != ' ')
+            {
+                output = output + input[i];
+            }
+        }
+        else
+        {
+            output = output + input[i];
+        }
+        
+        j++;
+    }
     
-//     // cout << "This is how many spaces are in the string originally: " << counter << endl;
+    return output;
+}
+
+main()
+{
+    //Variable declaration
+    string input;
+    string output;
+    int i, size, counter = 0;
+    string user_decision;
     
-//     output = Space_Corrector(input);
+    cout << "Please enter \"input\" or \"file\" to know what you want the program to work from: ";
+    cin >> user_decision;
     
-//     cout << "This is the string fixing the spaces: " << endl << output << endl;
+    // if (user_decision == "input")
+    // {
+       // cout << "Please enter a string: ";
+       // getline(cin, input);
+        
+       // size = input.size();
+
+       // // cout << "This is how many spaces are in the string originally: " << counter << endl;
+        
+       // output = SpaceCorrector_cin(input);
+        
+       // cout << "This is the string fixing the spaces: " << endl << output << endl;
+        
+       // size = output.size();
+       // counter = 0;
+       // for (i = 0; i < size; i++)
+       // {
+       //     if (output[i] == ' ')
+       //     {
+       //         counter++;
+       //     }
+       // }
+    // }
+    if (user_decision == "input")
+    {
+        cout << "Please enter a string: ";
+        getline(cin, input); //Doesn't let the user ionput
+        SpaceCorrector_cin_test(input);
+    }
+    else if (user_decision == "file")
+    {
+        SpaceCorrector_File();
+        cout << "File was created." << endl;
+    }
+    else if (user_decision != "input" || user_decision != "file")
+    {
+        cout << "Error 1." << endl;
+    }
+    else
+    {
+        cout << "Error 2." << endl;
+    }
     
-//     size = output.size();
-//     counter = 0;
-//     for (i = 0; i < size; i++)
-//     {
-//         if (output[i] == ' ')
-//         {
-//             counter++;
-//         }
-//     }
-    
-//     // cout << "This is the fixed number of spaces from the output: " << counter << endl;
-    
-// }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

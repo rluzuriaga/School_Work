@@ -44,4 +44,5 @@ void FileUniter()
 main()
 {
 	FileUniter();
+	cout << "File was created!" << endl;
 }
