@@ -5,7 +5,7 @@
  */
  
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <fstream>
 
 using namespace std;
@@ -178,7 +178,9 @@ main()
     if (user_decision == "input")
     {
         cout << "Please enter a string: ";
-        getline(cin, input); //Doesn't let the user ionput
+        cin >> ws;
+        getline(cin, input); //Doesn't let the user input
+        
         SpaceCorrector_cin_test(input);
     }
     else if (user_decision == "file")
