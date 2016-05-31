@@ -45,7 +45,7 @@ main()
 		if (counter_main == 3 || counter_main == 7 || counter_main == 11 || counter_main == 15 || counter_main == 19 || counter_main == 23 || counter_main == 27 || counter_main == 31 || counter_main == 35)
 		{
 			cout << " ";
-			myfile << " ";
+			myfile << "\n ";
 		}
 		
 		cout << binary[counter_main];
