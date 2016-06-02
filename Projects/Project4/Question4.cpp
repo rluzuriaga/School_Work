@@ -23,13 +23,14 @@ void FileUniter()
 	ofstream united_file;
 	string text;
 
-	// 
-	file1.open("files/file1");
-	file2.open("files/file2");
-	file3.open("files/file3");
-	united_file.open("files/United_File");
+	// Opens all the files needed for the function to work
+	file1.open("files/file1"); // File 1 from website
+	file2.open("files/file2"); // File 2 from website
+	file3.open("files/file3"); // File 3 from website
+	united_file.open("files/United_File"); //File that will contain the united text
 
 
+	// This set inputs all the text files into the united file
 	getline(file1, text);
 	united_file << text << " ";
 
@@ -40,6 +41,7 @@ void FileUniter()
 	united_file << text << " \n";
 
 
+	// This set just closes all the files
 	file1.close();
 	file2.close();
 	file3.close();
@@ -231,10 +233,10 @@ string WordCharacterCounterHighest()
 	string word_holder, new_input;
 	vector<string> input_whole_word_vector;
 	string input;
-	string highest_word1, highest_word2, highest_word3;
+	string highest_word;
 	string string_to_return;
-	int highest1, highest2 = 0, highest3 = 0;
-	int highest_placement1, highest_placement2 = 0, highest_placement3 = 0;
+	int highest;
+	int highest_placement;
 	int i, size;
 
 	file_in.open("files/Fixed_Spaces_File");
@@ -270,63 +272,26 @@ string WordCharacterCounterHighest()
 	}
 
 
-	highest1 = input_whole_word_vector[0].size();
+	highest = input_whole_word_vector[0].size();
 
 	size = input_whole_word_vector.size();
 
 	for (i = 0; i < size; i++)
 	{
-		if (input_whole_word_vector[i].size() > highest1)
+		if (input_whole_word_vector[i].size() > highest)
 		{
-			highest1 = input_whole_word_vector[i].size();
-			highest_placement1 = i;
+			highest = input_whole_word_vector[i].size();
+			highest_placement = i;
 		}
 		else
 		{
 			continue;
 		}
-	//	else if (input_whole_word_vector[i].size() == highest1)
-	//	{
-	//		if (highest2 <= highest1)
-	//		{
-	//			if (highest2 == highest1)
-	//			{
-	//				highest2 = input_whole_word_vector[i].size();
-	//				highest_placement2 = i;
-	//			}
-	//			else
-	//			{
-	//				continue;
-	//			}
-	//		}
-	//		else if (highest3 <= highest1 && highest3 <= highest2)
-	//		{
-	//			if (highest3 == highest1)
-	//			{
-	//				highest3 = input_whole_word_vector[i].size();
-	///				highest_placement3 = i;
-	//			}
-	//			else
-	//			{
-	//				continue;
-	//			}
-	//		}
-	//		else
-	//		{
-	//			continue;
-	//		}
-		}
 	}
 
-	highest_word1 = input_whole_word_vector[highest_placement1];
-//	highest_word2 = input_whole_word_vector[highest_placement2];
-//	highest_word3 = input_whole_word_vector[highest_placement3];
+	highest_word = input_whole_word_vector[highest_placement];
 
-//	string_to_return = highest_word1 + ", " + highest_word2 + ", " + highest_word3;
-
-//	return string_to_return;
-
-	return highest_word1;
+	return highest_word;
 }
 
 
