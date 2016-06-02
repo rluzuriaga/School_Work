@@ -1,8 +1,14 @@
 /*
-* Rodrigo Luzuriaga
-* Project #4 - Question #4
-* CSCI 110 - T/Th
-*/
+ * Project #4 - Question #4
+ * 	CSCI 110 - T/Th
+ * 
+ * Names:
+ * 	Rodrigo Luzuriaga
+ * 	Jonathan Hanbali
+ * 	Yingying Zhang
+ * 
+ * Compiler: g++(linux)
+ */
 
 #include <iostream>
 #include <vector>
