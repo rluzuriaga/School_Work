@@ -81,9 +81,9 @@ main()
 	
 	highest = input_whole_word_vector[0].size();
 	lowest = input_whole_word_vector[0].size();
-	
+
 	size = input_whole_word_vector.size();
-	
+
 	for (i = 0; i < size; i++)
 	{
 		if (input_whole_word_vector[i].size() > highest)
@@ -100,15 +100,15 @@ main()
 		{
 			continue;
 		}
-		
-		// cout << "This is the size of the word in the spot # " << i << " on the vector: " << input_whole_word_vector[i].size() << endl;
+
+		cout << "This is the size of the word in the spot # " << i << " on the vector: " << input_whole_word_vector[i].size() << endl;
 	}
-	
+
 	cout << "This is the lowest word count: " << input_whole_word_vector[lowest_placement] << endl;
 	cout << "This is the highest word count: " << input_whole_word_vector[highest_placement] << endl;
-	
-	
-	
+
+
+
 
 }
 
