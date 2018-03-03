@@ -1,0 +1,2 @@
+Please enter a word(s) to check if it is a palidrome: a man a plan a canal Panama
+They are the same!!!

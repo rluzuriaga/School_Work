@@ -1,0 +1,5 @@
+Please enter the binary that you want to convert to decimal: 011111111111111111111111111111111
+
+This is the binary number backwards: 111111111111111111111111111111110
+
+This is the decimal of the binary 011111111111111111111111111111111 is: 4294967295

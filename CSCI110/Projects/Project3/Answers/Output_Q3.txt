@@ -1,0 +1,34 @@
+Please enter the string: aouhf lisunb lvjhbv lakj nlvkjfd hbliauhlfiuveriuygiquroiuwyeputyglkjxzv,mncb,zmnb,vcmnblxkcjfhglsuerhy iuerh lkjdsfhgl iuerhlgi usdhlgiujblwsiueryotiuqypiuy	piu oqiurtlsjh lkjzhvcnbxz,mnvcbslkjhfpgtiuwerhgiuhd fslgkjsdhf glkjbxvlksujhbdf lvi
+
+This is how many characters were inputed: 242
+
+The letter A has appeared 3 time(s).
+The letter B has appeared 11 time(s).
+The letter C has appeared 5 time(s).
+The letter D has appeared 6 time(s).
+The letter E has appeared 7 time(s).
+The letter F has appeared 9 time(s).
+The letter G has appeared 10 time(s).
+The letter H has appeared 17 time(s).
+The letter I has appeared 18 time(s).
+The letter J has appeared 13 time(s).
+The letter K has appeared 10 time(s).
+The letter L has appeared 21 time(s).
+The letter M has appeared 4 time(s).
+The letter N has appeared 7 time(s).
+The letter O has appeared 4 time(s).
+The letter P has appeared 4 time(s).
+The letter Q has appeared 3 time(s).
+The letter R has appeared 8 time(s).
+The letter S has appeared 10 time(s).
+The letter T has appeared 4 time(s).
+The letter U has appeared 21 time(s).
+The letter V has appeared 10 time(s).
+The letter W has appeared 3 time(s).
+The letter X has appeared 4 time(s).
+The letter Y has appeared 7 time(s).
+The letter Z has appeared 4 time(s).
+
+
+Array L is the highest letter used. It is used 21 times.
+Array J is the second highest letter user. It is used 13 times.

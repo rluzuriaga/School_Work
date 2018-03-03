@@ -1,0 +1,15 @@
+Question 4a output: 
+The file "United_File" was created out of the three files provided.
+
+
+Question 4b output: 
+The file "Fixed_Spaces_File" was created fixing the extra spaces in the "United_File" file.
+
+
+Question 4c output: 
+There are 28 word in the text file.
+
+
+Question 4d output: 
+The smallest word in the text file is: A
+The largest word in the text file is: alternate
