@@ -1,5 +1,0 @@
-Please enter the binary that you want to convert to decimal: 000010001000100010001000100010000
-
-This is the binary number backwards: 000010001000100010001000100010000
-
-This is the decimal of the binary 000010001000100010001000100010000 is: 286331154

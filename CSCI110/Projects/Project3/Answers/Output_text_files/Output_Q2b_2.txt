@@ -1,2 +1,0 @@
-Please enter the decimal number you want to convert: 32000
-111 1101 0000 0000
