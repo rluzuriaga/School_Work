@@ -1,2 +1,0 @@
-Please enter a word(s) to check if it is a palidrome: this is a bad test
-They are not the same! :(

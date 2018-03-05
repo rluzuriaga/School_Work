@@ -1,2 +1,0 @@
-Please enter the decimal number you want to convert: 255
- 1111 1111

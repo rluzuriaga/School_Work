@@ -1,5 +1,0 @@
-Please enter how many Fibonacci numbers you want to output (1 or larger): -3
-Please enter a valid number (1 or larger): 0
-Please enter a valid number (1 or larger): 1
-1
-
