@@ -15,6 +15,8 @@ Bellow are the commit statements, from latest to oldest, for each branch (I am s
 * * *
 
 ## CISD40
+### March 9, 2018
+* Added lab for chapter 2.
 ### March 4, 2018
 * Moved files/folders from inside the class name folder (CISD40) onto the root directory of this branch.
 ### March 2, 2018 
