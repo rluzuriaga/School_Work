@@ -1,0 +1,149 @@
+1. A database is a physical storage device for data.​ 
+	[ ] True
+	[X] False
+
+
+2. An entity is represented by a column in the Entity-Relationship Model.​ 
+	[ ] True
+	[X] False
+
+
+3. If a primary key has been identified for the data, then the data is considered to be in first normal form (1NF).​ 
+	[ ] True
+	[X] False
+
+
+4. Transitive dependency can only exist if the data is uniquely identified by a composite primary key.​ 
+	[ ] True
+	[X] False
+
+
+5. A bridging table can be used to eliminate a many-to-many relationship in a relational database.​ 
+	[X] True
+	[ ] False
+
+
+6. Which of the following terms is considered the basic unit of data in a database?​ 
+	[X] character
+	[ ] field
+	[ ] record
+	[ ] file
+
+
+7. Which of the following terms represents a collection of fields?​ 
+	[ ] field
+	[X] record
+	[ ] character
+	[ ] file
+
+
+8. A record in the logical design of a database corresponds to a ____ in the physical database.​ 
+	[ ] column
+	[X] row
+	[ ] table
+	[ ] file
+
+
+9. A DBMS includes which of the following capabilities?​ 
+	[ ] security
+	[ ] data dictionary
+	[ ] multiuser access
+	[X] all of the above
+
+
+10. In which step of the Systems Development Life Cycle (SDLC) is the system actually used by the end-user on a regular basis?​ 
+	[ ] systems investigation
+	[ ] systems analysis
+	[X] systems deployment
+	[ ] systems implementation and review
+
+
+11. What type of relationship is depicted in Figure 1?​ 
+ ____                 _____
+[__A__]--------------[__B__]
+Figure 1
+
+	[ ] one-to-many
+	[ ] many-to-many
+	[ ] one-to-all
+	[X] one-to-one
+
+
+12. If entity A in Figure 2 represents customers and entity B represents automobiles, which of the following statements is correct?​
+ ____              _____
+[__A__]----------<[__B__]
+Figure 2
+
+	[ ] Each customer can only own one car, but each car can be owned by many customers.
+	[ ] Each customer can only own one car and each car can only be owned by one customer.
+	[ ] Each customer can own many cars and each car can be owned by many customers.
+	[X] Each customer can own many cars, but each car can be owned by only one customer.
+
+
+13. Which of the following may contain repeating groups of data?​ 
+	[X] unnormalized data
+	[ ] first normal form (1NF)
+	[ ] second normal form (2NF)
+	[ ] third normal form (3NF)
+
+
+14. Data in third normal form (3NF) contains which of the following?​ 
+	[ ] repeating groups
+	[ ] transitive dependencies
+	[ ] partial dependencies
+	[X] none of the above
+
+
+15. A ____ is a storage structure designed to hold a collection of data.​ 
+	[ ] column
+	[ ] row
+	[ ] table
+	[X] database
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
