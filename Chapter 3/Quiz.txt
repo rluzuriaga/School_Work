@@ -1,0 +1,149 @@
+1. Each table _____ represents an attribute.
+	[X] column
+	[ ] row
+	[ ] dimension
+	[ ] value
+
+2. Date attributes contain calendar dates stored in a special format known as the _____ date format.
+	[ ] Epoch
+	[ ] calendar
+	[X] Julian
+	[ ] logical
+
+3. In the relational model, _____ are important because they are used to ensure that each row in a table is uniquely identifiable.
+	[ ] relations
+	[X] keys
+	[ ] indexes
+	[ ] logical structures
+
+4. A _____ is any key that uniquely identifies each row.
+	[X] superkey
+	[ ] special key
+	[ ] foreign key
+	[ ] candidate key
+
+5. A _____ key can be described as a minimal superkey, a superkey without any unnecessary attributes.
+	[ ] secondary
+	[X] candidate
+	[ ] primary
+	[ ] foreign
+
+6. A _____ is the primary key of one table that has been placed into another table to create a common attribute.
+	[ ] superkey
+	[ ] composite primary key
+	[ ] candidate key
+	[X] foreign key
+
+7. A _____ key is defined as a key that is used strictly for data retrieval purposes.
+	[ ] lookup
+	[ ] foreign
+	[ ] candidate
+	[X] secondary
+
+8. Referential _____ dictates that the foreign key must contain values that match the primary key in the related table, or must contain null.
+	[X] integrity
+	[ ] uniqueness
+	[ ] model
+	[ ] attribute
+
+9. The _____ constraint can be placed on a column to ensure that every row in the table has a value for that column.
+	[ ] UNIQUE
+	[X] NOT NULL
+	[ ] VALUE
+	[ ] EMPTY
+
+10. _____, also known as RESTRICT, yields values for all rows found in a table that satisfy a given condition.
+	[ ] INTERSECT
+	[ ] UNION
+	[ ] DIFFERENCE
+	[X] SELECT
+
+11. _____ returns only the attributes requested, in the order in which they are requested.
+	[X] PROJECT
+	[ ] SELECT
+	[ ] UNION
+	[ ] DIFFERENCE
+
+12. A(n) _____ join links tables by selecting only the rows with common values in their common attribute(s).
+	[ ] attribute
+	[ ] unique
+	[ ] foreign
+	[X] natural
+
+13. _____ are especially useful when you are trying to determine what values in related tables cause referential integrity problems.
+	[ ] Inner joins
+	[X] Outer joins
+	[ ] Equijoins
+	[ ] Theta joins
+
+14. A(n) _____ only returns matched records from the tables that are being joined.
+	[ ] outer join
+	[X] inner join
+	[ ] equijoin
+	[ ] theta join
+
+15. A _____ contains at least all of the attribute names and characteristics for each table in the system.
+	[X] data dictionary
+	[ ] relational schema
+	[ ] logical schema
+	[ ] database
+
+16. The _____ is actually a system-created database whose tables store the user/designer-created database characteristics and contents.
+	[ ] database tuple
+	[ ] systematic database
+	[ ] unique index
+	[X] system catalog
+
+17. In a database context, the word _____ indicates the use of the same attribute name to label different attributes.
+	[ ] redundancy
+	[X] homonym
+	[ ] duplicate
+	[ ] synonym
+
+18. In a database context, a(n) _____ indicates the use of different names to describe the same attribute.
+	[ ] entity
+	[ ] duplicate
+	[X] synonym
+	[ ] homonym
+
+19. The _____ relationship is the “relational model ideal.”
+	[ ] 1:1
+	[X] 1:M
+	[ ] M:1
+	[ ] M:N
+
+20. The _____ relationship should be rare in any relational database design.
+	[X] 1:1
+	[ ] 1:M
+	[ ] M:1
+	[ ] M:N
+
+21. _____ relationships can be implemented by creating a new entity in 1:M relationships with the original entities.
+	[ ] 1:N
+	[ ] M:1
+	[X] M:N
+	[ ] 1:1
+
+22. Another name for a composite entity is a(n) _____ entity.
+	[X] bridge
+	[ ] linked
+	[ ] directive
+	[ ] associative
+
+23. A(n) _____ is an orderly arrangement used to logically access rows in a table.
+	[ ] primary rule
+	[ ] superkey
+	[ ] relationship
+	[X] index
+
+24. When you define a table’s primary key, the DBMS automatically creates a(n) _____ index on the primary key column(s) you declared.
+	[ ] key
+	[ ] composite
+	[X] unique
+	[ ] primary
+
+25. According to Codd’s _____ rule of relational database, "Application programs and ad hoc facilities are logically unaffected when changes are made to the table structures that preserve the original table values (changing order of columns or inserting columns)."
+	[ ] nonsubversion
+	[X] logical data independence
+	[ ] comprehensive data sublanguage
+	[ ] integrity independence
