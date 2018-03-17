@@ -16,6 +16,8 @@ Bellow are the commit statements, from latest to oldest, for each branch (I am s
 * * *
 
 ## CISD40
+### March 16, 2018
+* Added two files for Chapter 3.
 ### March 9, 2018
 * Added lab for chapter 2.
 ### March 4, 2018
